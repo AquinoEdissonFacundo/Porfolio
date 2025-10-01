@@ -273,7 +273,7 @@ const About = () => {
                 >
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold">
-                      {item.year.split(' ')[0].slice(-2)}
+                      {item.year.includes('2024') ? '24' : item.year.includes('2025') ? '25' : item.year.slice(-2)}
                     </div>
                   </div>
                   <div className="flex-1 space-y-2">
