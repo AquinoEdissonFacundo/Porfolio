@@ -261,31 +261,43 @@ const About = () => {
               </p>
             </motion.div>
 
-            <div className="space-y-8">
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-start space-x-6"
-                >
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {item.year.includes('2024') ? '2024' : item.year.includes('2025') ? '2025' : item.year}
+            <div className="relative">
+              {/* Línea conectora vertical */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 via-primary-500 to-primary-600"></div>
+              
+              <div className="space-y-12">
+                {timeline.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative flex items-start space-x-8"
+                  >
+                    {/* Círculo del año */}
+                    <div className="flex-shrink-0 relative z-10">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-dark-800 hover:scale-110 transition-transform duration-300">
+                        {item.year.includes('2024') ? '2024' : item.year.includes('2025') ? '2025' : item.year}
+                      </div>
+                      {/* Punto brillante en el centro */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent"></div>
                     </div>
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <h3 className="text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-400">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+                    
+                    {/* Contenido */}
+                    <div className="flex-1 space-y-3 pb-8">
+                      <div className="bg-dark-800/50 backdrop-blur-sm rounded-xl p-6 border border-dark-700 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
+                        <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary-400 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-400 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
