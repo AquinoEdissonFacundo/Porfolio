@@ -120,7 +120,17 @@ const Projects = () => {
                   {/* Project Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-600/20 to-primary-800/20 aspect-video">
-                      <div className="absolute inset-0 flex items-center justify-center">
+                      <img 
+                        src={project.image} 
+                        alt={`Vista previa de ${project.title}`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback si la imagen no carga
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center hidden">
                         <div className="text-center space-y-4">
                           <div className="w-20 h-20 bg-primary-600 rounded-xl mx-auto flex items-center justify-center">
                             <ExternalLink className="w-10 h-10 text-white" />
