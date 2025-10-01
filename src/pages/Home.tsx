@@ -22,7 +22,7 @@ const Home = () => {
     {
       id: 2,
       title: 'StronMuebles.com',
-      description: 'Catálogo de mueblería con integración WordPress y sistema de rutas',
+      description: 'Catálogo online de mueblería con integración WordPress y sistema de rutas',
       image: '/ProyectoMuebleria.png',
       technologies: ['React 18', 'TypeScript', 'WordPress', 'Sitemap'],
       liveUrl: 'https://stronmuebles.com',

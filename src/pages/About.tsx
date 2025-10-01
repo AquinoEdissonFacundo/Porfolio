@@ -51,7 +51,7 @@ const About = () => {
     {
       year: 'Septiembre 2025',
       title: 'Proyecto Avanzado - StronMuebles',
-      description: 'Creé un e-commerce completo con TypeScript, integración WordPress y sistema de rutas personalizado.'
+      description: 'Creé un catálogo online completo con TypeScript, integración WordPress y sistema de rutas personalizado.'
     }
   ]
 

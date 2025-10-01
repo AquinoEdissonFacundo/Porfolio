@@ -38,8 +38,8 @@ const Projects = () => {
     {
       id: 2,
       title: 'StronMuebles.com',
-      description: 'Catálogo de mueblería con integración a WordPress para gestión de productos. Incluye sistema de rutas personalizado y sitemap automático para SEO.',
-      longDescription: 'E-commerce completo para mueblería en Tigre. Desarrollé un sistema de catálogo dinámico que se conecta con WordPress para la gestión de productos, permitiendo al cliente actualizar inventario fácilmente. Implementé un sistema de rutas personalizado sin usar React Router para mayor control sobre la navegación y SEO.',
+      description: 'Catálogo online de mueblería con integración a WordPress para gestión de productos. Incluye sistema de rutas personalizado y sitemap automático para SEO.',
+      longDescription: 'Catálogo online completo para mueblería en Tigre. Desarrollé un sistema de catálogo dinámico que se conecta con WordPress para la gestión de productos, permitiendo al cliente actualizar inventario fácilmente. Implementé un sistema de rutas personalizado sin usar React Router para mayor control sobre la navegación y SEO.',
       image: '/ProyectoMuebleria.png',
       technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap', 'Context API'],
       liveUrl: 'https://stronmuebles.com',
@@ -63,7 +63,7 @@ const Projects = () => {
       results: [
         'Sistema de gestión de productos automatizado',
         'Navegación fluida y SEO-friendly',
-        'Experiencia de usuario optimizada para e-commerce'
+        'Experiencia de usuario optimizada para catálogo online'
       ]
     }
   ]
