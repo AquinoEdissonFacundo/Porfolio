@@ -12,8 +12,8 @@ const Projects = () => {
       longDescription: 'Proyecto completo para centro de masajes terapéuticos en Nordelta. Implementé un diseño responsive y optimizado para móviles, ya que la mayoría de los clientes buscan servicios de masajes desde sus teléfonos. El sitio incluye información detallada sobre servicios, precios, ubicación y un sistema de contacto directo por WhatsApp.',
       image: '/projects/avi-preview.jpg',
       technologies: ['React 18', 'Sass', 'SEO Local', 'JSON-LD', 'Open Graph'],
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: 'https://avi-chi.vercel.app/',
+      githubUrl: 'https://github.com/AquinoEdissonFacundo/Avi',
       client: 'Cliente real - Nordelta, Tigre',
       date: 'Enero 2024',
       features: [
@@ -43,7 +43,7 @@ const Projects = () => {
       image: '/projects/muebleria-preview.jpg',
       technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap', 'Context API'],
       liveUrl: 'https://stronmuebles.com',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/AquinoEdissonFacundo/muebleria',
       client: 'Cliente real - Tigre',
       date: 'Septiembre 2025',
       features: [
