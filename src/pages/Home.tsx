@@ -57,7 +57,7 @@ const Home = () => {
     {
       category: 'Deploy & Hosting',
       icon: <Server className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway']
+      technologies: ['Vercel', 'Netlify', 'Supabase', 'Render', 'Cloudinary', 'DonWeb', 'Hostinger', 'Railway']
     }
   ]
 

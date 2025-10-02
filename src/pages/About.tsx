@@ -33,8 +33,8 @@ const About = () => {
     {
       category: 'Deploy & Hosting',
       icon: <Code2 className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway'],
-      description: 'Experiencia con múltiples plataformas de hosting y CI/CD'
+      technologies: ['Vercel', 'Netlify', 'Supabase', 'Render', 'Cloudinary', 'DonWeb', 'Hostinger', 'Railway'],
+      description: 'Experiencia con múltiples plataformas de hosting, bases de datos y servicios en la nube'
     }
   ]
 

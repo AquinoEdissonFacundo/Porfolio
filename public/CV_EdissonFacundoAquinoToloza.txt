@@ -79,7 +79,7 @@ Herramientas y Tecnologías
 • CMS: WordPress REST API, Headless CMS
 • SEO: JSON-LD, Open Graph, Twitter Cards, Sitemap XML
 • Performance: Lighthouse, Core Web Vitals, WebP, Lazy Loading
-• Deploy & Hosting: Vercel, Netlify, DonWeb, Hostinger, Railway
+• Deploy & Hosting: Vercel, Netlify, Supabase, Render, Cloudinary, DonWeb, Hostinger, Railway
 
 ═══════════════════════════════════════════════════════════════════════════════
 
