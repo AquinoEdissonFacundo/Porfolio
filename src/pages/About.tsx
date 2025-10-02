@@ -171,22 +171,21 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative flex justify-center"
               >
-                <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8">
-                  <div className="bg-dark-800 rounded-xl p-6 space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <div className="space-y-2 font-mono text-sm">
-                      <div className="text-primary-400">const developer = {'{'} </div>
-                      <div className="ml-4 text-gray-300">name: "Edisson Facundo Aquino Toloza",</div>
-                      <div className="ml-4 text-gray-300">role: "Full-Stack Developer",</div>
-                      <div className="ml-4 text-gray-300">passion: "Real-world solutions",</div>
-                      <div className="ml-4 text-gray-300">experience: "2+ real projects",</div>
-                      <div className="text-primary-400"> {'}'};</div>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl transform rotate-3"></div>
+                  <div className="relative bg-dark-800 rounded-2xl p-4 shadow-2xl">
+                    <img 
+                      src="/Facundo.jpeg" 
+                      alt="Edisson Facundo Aquino Toloza - Desarrollador Full-Stack"
+                      className="w-72 h-72 object-cover rounded-xl shadow-lg"
+                    />
+                  </div>
+                  <div className="absolute -bottom-4 -right-4 bg-primary-600 text-white px-4 py-2 rounded-lg shadow-lg">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-sm font-medium">Activo</span>
                     </div>
                   </div>
                 </div>
