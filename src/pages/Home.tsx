@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Code2, Database, Globe, Zap } from 'lucide-react'
+import { ArrowRight, Code2, Database, Globe, Zap, Server } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import SkillCard from '../components/SkillCard'
@@ -53,6 +53,11 @@ const Home = () => {
       category: 'Performance',
       icon: <Zap className="w-6 h-6" />,
       technologies: ['Lighthouse', 'Core Web Vitals', 'WebP', 'Lazy Loading', 'JSON-LD']
+    },
+    {
+      category: 'Deploy & Hosting',
+      icon: <Server className="w-6 h-6" />,
+      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway']
     }
   ]
 
@@ -201,7 +206,7 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.category}
