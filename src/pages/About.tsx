@@ -29,6 +29,12 @@ const About = () => {
       icon: <Zap className="w-6 h-6" />,
       technologies: ['Lighthouse', 'Core Web Vitals', 'WebP', 'Lazy Loading', 'JSON-LD'],
       description: 'Optimización para velocidad y SEO'
+    },
+    {
+      category: 'Deploy & Hosting',
+      icon: <Code2 className="w-6 h-6" />,
+      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway'],
+      description: 'Experiencia con múltiples plataformas de hosting y CI/CD'
     }
   ]
 
@@ -50,7 +56,7 @@ const About = () => {
     },
     {
       year: '2024',
-      title: 'Estudios de Inglés Técnico - UBA',
+      title: 'Estudios de Inglés - UBA',
       description: 'Inicié estudios de inglés técnico en la Universidad de Buenos Aires para mejorar mis habilidades de comunicación en entornos internacionales.'
     },
     {

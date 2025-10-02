@@ -79,7 +79,13 @@ Herramientas y Tecnologías
 • CMS: WordPress REST API, Headless CMS
 • SEO: JSON-LD, Open Graph, Twitter Cards, Sitemap XML
 • Performance: Lighthouse, Core Web Vitals, WebP, Lazy Loading
-• Deployment: Vercel, Netlify, Railway, Docker
+
+Plataformas de Deploy
+• Vercel: Deploy de aplicaciones React/Next.js con CI/CD automático
+• Netlify: Hosting de sitios estáticos y formularios
+• DonWeb: Hosting compartido y VPS para aplicaciones web
+• Hostinger: Hosting económico y dominios personalizados
+• Railway: Deploy de aplicaciones full-stack con bases de datos
 
 ═══════════════════════════════════════════════════════════════════════════════
 
@@ -121,7 +127,8 @@ LOGROS DESTACADOS
 • SEO Avanzado: Implementación de JSON-LD, Open Graph y sitemaps automáticos
 • Performance: Optimización de Core Web Vitals y Lighthouse scores
 • Sistemas Personalizados: Desarrollo de routing custom y integración WordPress
-• Deploy Profesional: Experiencia con Vercel, Netlify y configuración de SPAs
+• Deploy Profesional: Experiencia con múltiples plataformas (Vercel, Netlify, DonWeb, Hostinger, Railway)
+• CI/CD: Configuración de despliegues automáticos y gestión de dominios
 
 ═══════════════════════════════════════════════════════════════════════════════
 
