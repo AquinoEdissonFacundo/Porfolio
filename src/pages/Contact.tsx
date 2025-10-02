@@ -287,7 +287,7 @@ const Contact = () => {
                     Descarga mi currículum con experiencia en proyectos reales y formación técnica completa.
                   </p>
                   <a
-                    href="/CV_EdissonFacundoAquinoToloza.txt"
+                    href="/CV_EdissonFacundoAquinoToloza.html"
                     download
                     className="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors group"
                   >

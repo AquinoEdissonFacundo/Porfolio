@@ -244,7 +244,7 @@ const Home = () => {
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="/CV_EdissonFacundoAquinoToloza.txt"
+                href="/CV_EdissonFacundoAquinoToloza.html"
                 download
                 className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center"
               >
