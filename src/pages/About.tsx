@@ -49,6 +49,11 @@ const About = () => {
       description: 'Obtuve certificaciones en JavaScript, React y desarrollo web responsive de freeCodeCamp y Platzi.'
     },
     {
+      year: '2024',
+      title: 'Estudios de Inglés Técnico - UBA',
+      description: 'Inicié estudios de inglés técnico en la Universidad de Buenos Aires para mejorar mis habilidades de comunicación en entornos internacionales.'
+    },
+    {
       year: 'Septiembre 2025',
       title: 'Proyecto Avanzado - StronMuebles',
       description: 'Creé un catálogo online completo con TypeScript, integración WordPress y sistema de rutas personalizado.'
