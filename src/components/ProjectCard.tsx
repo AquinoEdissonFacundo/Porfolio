@@ -1,3 +1,4 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, Calendar, User } from 'lucide-react'
 
@@ -26,13 +27,32 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     >
       {/* Project Image */}
       <div className="relative overflow-hidden rounded-lg mb-4">
-        <div className="aspect-video bg-gradient-to-br from-primary-600/20 to-primary-800/20 flex items-center justify-center">
-          <div className="text-center space-y-2">
-            <div className="w-16 h-16 bg-primary-600 rounded-lg mx-auto flex items-center justify-center">
-              <ExternalLink className="w-8 h-8 text-white" />
-            </div>
-            <p className="text-sm text-gray-400">Vista previa</p>
-          </div>
+        <div className="aspect-video bg-gradient-to-br from-primary-600/20 to-primary-800/20">
+          <img 
+            src={project.image} 
+            alt={`Vista previa de ${project.title}`}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Fallback si la imagen no carga
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const parent = target.parentElement;
+              if (parent) {
+                parent.innerHTML = `
+                  <div class="w-full h-full flex items-center justify-center">
+                    <div class="text-center space-y-2">
+                      <div class="w-16 h-16 bg-primary-600 rounded-lg mx-auto flex items-center justify-center">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                      </div>
+                      <p class="text-sm text-gray-400">Vista previa</p>
+                    </div>
+                  </div>
+                `;
+              }
+            }}
+          />
         </div>
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
           <a
