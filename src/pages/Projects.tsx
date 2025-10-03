@@ -1,3 +1,4 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, Calendar, User, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -10,7 +11,7 @@ const Projects = () => {
       title: 'AviDelta.online',
       description: 'Sitio web completo para centro de masajes en Nordelta y Tigre. Desarrollado con enfoque en conversión por WhatsApp y SEO local para atraer clientes de la zona. (Proyecto completado - dominio no renovado)',
       longDescription: 'Proyecto completo para centro de masajes terapéuticos en Nordelta. Implementé un diseño responsive y optimizado para móviles, ya que la mayoría de los clientes buscan servicios de masajes desde sus teléfonos. El sitio incluye información detallada sobre servicios, precios, ubicación y un sistema de contacto directo por WhatsApp.',
-      image: '/projects/avi-preview.jpg',
+      image: '/ProyectoAvi.png',
       technologies: ['React 18', 'Sass', 'SEO Local', 'JSON-LD', 'Open Graph'],
       liveUrl: '#',
       githubUrl: '#',
@@ -40,7 +41,7 @@ const Projects = () => {
       title: 'StronMuebles.com',
       description: 'Catálogo de mueblería con integración a WordPress para gestión de productos. Incluye sistema de rutas personalizado y sitemap automático para SEO.',
       longDescription: 'E-commerce completo para mueblería en Tigre. Desarrollé un sistema de catálogo dinámico que se conecta con WordPress para la gestión de productos, permitiendo al cliente actualizar inventario fácilmente. Implementé un sistema de rutas personalizado sin usar React Router para mayor control sobre la navegación y SEO.',
-      image: '/projects/muebleria-preview.jpg',
+      image: '/ProyectoMuebleria.png',
       technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap', 'Context API'],
       liveUrl: 'https://stronmuebles.com',
       githubUrl: '#',
@@ -120,14 +121,31 @@ const Projects = () => {
                   {/* Project Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-600/20 to-primary-800/20 aspect-video">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center space-y-4">
-                          <div className="w-20 h-20 bg-primary-600 rounded-xl mx-auto flex items-center justify-center">
-                            <ExternalLink className="w-10 h-10 text-white" />
-                          </div>
-                          <p className="text-gray-400">Vista previa del proyecto</p>
-                        </div>
-                      </div>
+                      <img 
+                        src={project.image} 
+                        alt={`Vista previa de ${project.title}`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback si la imagen no carga
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = `
+                              <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center space-y-4">
+                                  <div class="w-20 h-20 bg-primary-600 rounded-xl mx-auto flex items-center justify-center">
+                                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    </svg>
+                                  </div>
+                                  <p class="text-gray-400">Vista previa del proyecto</p>
+                                </div>
+                              </div>
+                            `;
+                          }
+                        }}
+                      />
                     </div>
                   </div>
 
