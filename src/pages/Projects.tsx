@@ -11,7 +11,7 @@ const Projects = () => {
       title: 'AviDelta.online',
       description: 'Sitio web completo para centro de masajes en Nordelta y Tigre. Desarrollado con enfoque en conversión por WhatsApp y SEO local para atraer clientes de la zona. (Proyecto completado - dominio no renovado)',
       longDescription: 'Proyecto completo para centro de masajes terapéuticos en Nordelta. Implementé un diseño responsive y optimizado para móviles, ya que la mayoría de los clientes buscan servicios de masajes desde sus teléfonos. El sitio incluye información detallada sobre servicios, precios, ubicación y un sistema de contacto directo por WhatsApp.',
-      image: '/ProyectoAvi.png',
+      image: './ProyectoAvi.png',
       technologies: ['React 18', 'Sass', 'SEO Local', 'JSON-LD', 'Open Graph'],
       liveUrl: '#',
       githubUrl: '#',
@@ -41,7 +41,7 @@ const Projects = () => {
       title: 'StronMuebles.com',
       description: 'Catálogo de mueblería con integración a WordPress para gestión de productos. Incluye sistema de rutas personalizado y sitemap automático para SEO.',
       longDescription: 'E-commerce completo para mueblería en Tigre. Desarrollé un sistema de catálogo dinámico que se conecta con WordPress para la gestión de productos, permitiendo al cliente actualizar inventario fácilmente. Implementé un sistema de rutas personalizado sin usar React Router para mayor control sobre la navegación y SEO.',
-      image: '/ProyectoMuebleria.png',
+      image: './ProyectoMuebleria.png',
       technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap', 'Context API'],
       liveUrl: 'https://stronmuebles.com',
       githubUrl: '#',
@@ -125,8 +125,9 @@ const Projects = () => {
                         src={project.image} 
                         alt={`Vista previa de ${project.title}`}
                         className="w-full h-full object-cover"
+                        onLoad={() => console.log('Imagen cargada:', project.image)}
                         onError={(e) => {
-                          // Fallback si la imagen no carga
+                          console.error('Error cargando imagen:', project.image, e);
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
                           const parent = target.parentElement;
@@ -140,6 +141,7 @@ const Projects = () => {
                                     </svg>
                                   </div>
                                   <p class="text-gray-400">Vista previa del proyecto</p>
+                                  <p class="text-red-400 text-xs">Error: ${project.image}</p>
                                 </div>
                               </div>
                             `;
