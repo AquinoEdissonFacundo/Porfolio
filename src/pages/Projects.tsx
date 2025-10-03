@@ -10,10 +10,10 @@ const Projects = () => {
       title: 'AviDelta.online',
       description: 'Sitio web completo para centro de masajes en Nordelta y Tigre. Desarrollado con enfoque en conversión por WhatsApp y SEO local para atraer clientes de la zona. (Proyecto completado - dominio no renovado)',
       longDescription: 'Proyecto completo para centro de masajes terapéuticos en Nordelta. Implementé un diseño responsive y optimizado para móviles, ya que la mayoría de los clientes buscan servicios de masajes desde sus teléfonos. El sitio incluye información detallada sobre servicios, precios, ubicación y un sistema de contacto directo por WhatsApp.',
-      image: '/ProyectoAvi.png',
+      image: '/projects/avi-preview.jpg',
       technologies: ['React 18', 'Sass', 'SEO Local', 'JSON-LD', 'Open Graph'],
-      liveUrl: 'https://avi-chi.vercel.app/',
-      githubUrl: 'https://github.com/AquinoEdissonFacundo/Avi',
+      liveUrl: '#',
+      githubUrl: '#',
       client: 'Cliente real - Nordelta, Tigre',
       date: 'Enero 2024',
       features: [
@@ -38,12 +38,12 @@ const Projects = () => {
     {
       id: 2,
       title: 'StronMuebles.com',
-      description: 'Catálogo online de mueblería con integración a WordPress para gestión de productos. Incluye sistema de rutas personalizado y sitemap automático para SEO.',
-      longDescription: 'Catálogo online completo para mueblería en Tigre. Desarrollé un sistema de catálogo dinámico que se conecta con WordPress para la gestión de productos, permitiendo al cliente actualizar inventario fácilmente. Implementé un sistema de rutas personalizado sin usar React Router para mayor control sobre la navegación y SEO.',
-      image: '/ProyectoMuebleria.png',
+      description: 'Catálogo de mueblería con integración a WordPress para gestión de productos. Incluye sistema de rutas personalizado y sitemap automático para SEO.',
+      longDescription: 'E-commerce completo para mueblería en Tigre. Desarrollé un sistema de catálogo dinámico que se conecta con WordPress para la gestión de productos, permitiendo al cliente actualizar inventario fácilmente. Implementé un sistema de rutas personalizado sin usar React Router para mayor control sobre la navegación y SEO.',
+      image: '/projects/muebleria-preview.jpg',
       technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap', 'Context API'],
       liveUrl: 'https://stronmuebles.com',
-      githubUrl: 'https://github.com/AquinoEdissonFacundo/muebleria',
+      githubUrl: '#',
       client: 'Cliente real - Tigre',
       date: 'Septiembre 2025',
       features: [
@@ -63,7 +63,7 @@ const Projects = () => {
       results: [
         'Sistema de gestión de productos automatizado',
         'Navegación fluida y SEO-friendly',
-        'Experiencia de usuario optimizada para catálogo online'
+        'Experiencia de usuario optimizada para e-commerce'
       ]
     }
   ]
@@ -120,17 +120,7 @@ const Projects = () => {
                   {/* Project Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary-600/20 to-primary-800/20 aspect-video">
-                      <img 
-                        src={project.image} 
-                        alt={`Vista previa de ${project.title}`}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          // Fallback si la imagen no carga
-                          e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling.style.display = 'flex';
-                        }}
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center hidden">
+                      <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-center space-y-4">
                           <div className="w-20 h-20 bg-primary-600 rounded-xl mx-auto flex items-center justify-center">
                             <ExternalLink className="w-10 h-10 text-white" />

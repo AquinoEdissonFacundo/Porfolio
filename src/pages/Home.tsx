@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Code2, Database, Globe, Zap, Server } from 'lucide-react'
+import { ArrowRight, Code2, Database, Globe, Zap } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
 import SkillCard from '../components/SkillCard'
@@ -10,10 +10,10 @@ const Home = () => {
       id: 1,
       title: 'AviDelta.online',
       description: 'Centro de masajes en Nordelta con enfoque en conversión por WhatsApp (Proyecto completado)',
-      image: '/ProyectoAvi.png',
+      image: '/projects/avi-preview.jpg',
       technologies: ['React 18', 'Sass', 'SEO Local'],
-      liveUrl: 'https://avi-chi.vercel.app/',
-      githubUrl: 'https://github.com/AquinoEdissonFacundo/Avi',
+      liveUrl: '#',
+      githubUrl: '#',
       featured: true,
       client: 'Cliente real - Nordelta, Tigre',
       date: 'Enero 2024',
@@ -22,11 +22,11 @@ const Home = () => {
     {
       id: 2,
       title: 'StronMuebles.com',
-      description: 'Catálogo online de mueblería con integración WordPress y sistema de rutas',
-      image: '/ProyectoMuebleria.png',
+      description: 'Catálogo de mueblería con integración WordPress y sistema de rutas',
+      image: '/projects/muebleria-preview.jpg',
       technologies: ['React 18', 'TypeScript', 'WordPress', 'Sitemap'],
       liveUrl: 'https://stronmuebles.com',
-      githubUrl: 'https://github.com/AquinoEdissonFacundo/muebleria',
+      githubUrl: '#',
       featured: true,
       client: 'Cliente real - Tigre',
       date: 'Septiembre 2025'
@@ -53,11 +53,6 @@ const Home = () => {
       category: 'Performance',
       icon: <Zap className="w-6 h-6" />,
       technologies: ['Lighthouse', 'Core Web Vitals', 'WebP', 'Lazy Loading', 'JSON-LD']
-    },
-    {
-      category: 'Deploy & Hosting',
-      icon: <Server className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'Supabase', 'Render', 'Cloudinary', 'DonWeb', 'Hostinger', 'Railway']
     }
   ]
 
@@ -117,21 +112,22 @@ const Home = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative flex justify-center lg:justify-end"
+              className="relative"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl transform rotate-3"></div>
-                <div className="relative bg-dark-800 rounded-2xl p-4 shadow-2xl">
-                  <img 
-                    src="/Facundo.jpeg" 
-                    alt="Edisson Facundo Aquino Toloza - Desarrollador Full-Stack"
-                    className="w-80 h-80 object-cover rounded-xl shadow-lg"
-                  />
-                </div>
-                <div className="absolute -bottom-4 -right-4 bg-primary-600 text-white px-4 py-2 rounded-lg shadow-lg">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium">Disponible</span>
+              <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8 shadow-2xl">
+                <div className="bg-dark-800 rounded-xl p-6 space-y-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-4 bg-primary-600/30 rounded w-3/4"></div>
+                    <div className="h-4 bg-primary-600/30 rounded w-1/2"></div>
+                    <div className="h-4 bg-primary-600/30 rounded w-2/3"></div>
+                  </div>
+                  <div className="text-primary-400 text-sm font-mono">
+                    const developer = "Facundo Toloza"
                   </div>
                 </div>
               </div>
@@ -206,7 +202,7 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.category}
@@ -244,7 +240,7 @@ const Home = () => {
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="/CV_EdissonFacundoAquinoToloza.html"
+                href="/CV_FacundoToloza_Mejorado.pdf"
                 download
                 className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center"
               >

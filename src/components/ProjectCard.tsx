@@ -27,17 +27,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       {/* Project Image */}
       <div className="relative overflow-hidden rounded-lg mb-4">
         <div className="aspect-video bg-gradient-to-br from-primary-600/20 to-primary-800/20 flex items-center justify-center">
-          <img 
-            src={project.image} 
-            alt={`Vista previa de ${project.title}`}
-            className="w-full h-full object-cover rounded-lg"
-            onError={(e) => {
-              // Fallback si la imagen no carga
-              e.currentTarget.style.display = 'none';
-              e.currentTarget.nextElementSibling.style.display = 'flex';
-            }}
-          />
-          <div className="text-center space-y-2 hidden">
+          <div className="text-center space-y-2">
             <div className="w-16 h-16 bg-primary-600 rounded-lg mx-auto flex items-center justify-center">
               <ExternalLink className="w-8 h-8 text-white" />
             </div>

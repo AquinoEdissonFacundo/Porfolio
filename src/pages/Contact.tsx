@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, ArrowLeft, Send, Github, Linkedin, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -238,18 +238,18 @@ const Contact = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-center space-x-4 p-4 bg-dark-800 rounded-lg hover:bg-dark-700 transition-colors group"
+                      className="flex items-center space-x-4 p-4 bg-dark-800 rounded-lg hover:bg-dark-700 transition-colors group w-full overflow-hidden"
                     >
                       <div className="p-3 bg-primary-600/20 rounded-lg group-hover:bg-primary-600/30 transition-colors">
                         <div className="text-primary-400 group-hover:text-primary-300 transition-colors">
                           {info.icon}
                         </div>
                       </div>
-                      <div>
+                      <div className="flex-1 min-w-0">
                         <h3 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors">
                           {info.title}
                         </h3>
-                        <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
+                        <p className="text-gray-400 group-hover:text-gray-300 transition-colors break-words overflow-wrap-anywhere">
                           {info.value}
                         </p>
                       </div>
@@ -287,7 +287,7 @@ const Contact = () => {
                     Descarga mi currículum con experiencia en proyectos reales y formación técnica completa.
                   </p>
                   <a
-                    href="/CV_EdissonFacundoAquinoToloza.html"
+                    href="/CV_FacundoToloza_Mejorado.pdf"
                     download
                     className="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors group"
                   >

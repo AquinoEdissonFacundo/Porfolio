@@ -29,12 +29,6 @@ const About = () => {
       icon: <Zap className="w-6 h-6" />,
       technologies: ['Lighthouse', 'Core Web Vitals', 'WebP', 'Lazy Loading', 'JSON-LD'],
       description: 'Optimización para velocidad y SEO'
-    },
-    {
-      category: 'Deploy & Hosting',
-      icon: <Code2 className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'Supabase', 'Render', 'Cloudinary', 'DonWeb', 'Hostinger', 'Railway'],
-      description: 'Experiencia con múltiples plataformas de hosting, bases de datos y servicios en la nube'
     }
   ]
 
@@ -55,14 +49,9 @@ const About = () => {
       description: 'Obtuve certificaciones en JavaScript, React y desarrollo web responsive de freeCodeCamp y Platzi.'
     },
     {
-      year: '2024',
-      title: 'Estudios de Inglés - UBA',
-      description: 'Inicié estudios de inglés técnico en la Universidad de Buenos Aires para mejorar mis habilidades de comunicación en entornos internacionales.'
-    },
-    {
       year: 'Septiembre 2025',
       title: 'Proyecto Avanzado - StronMuebles',
-      description: 'Creé un catálogo online completo con TypeScript, integración WordPress y sistema de rutas personalizado.'
+      description: 'Creé un e-commerce completo con TypeScript, integración WordPress y sistema de rutas personalizado.'
     }
   ]
 
@@ -171,21 +160,22 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="relative flex justify-center"
+                className="relative"
               >
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl transform rotate-3"></div>
-                  <div className="relative bg-dark-800 rounded-2xl p-4 shadow-2xl">
-                    <img 
-                      src="/Facundo.jpeg" 
-                      alt="Edisson Facundo Aquino Toloza - Desarrollador Full-Stack"
-                      className="w-72 h-72 object-cover rounded-xl shadow-lg"
-                    />
-                  </div>
-                  <div className="absolute -bottom-4 -right-4 bg-primary-600 text-white px-4 py-2 rounded-lg shadow-lg">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                      <span className="text-sm font-medium">Activo</span>
+                <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8">
+                  <div className="bg-dark-800 rounded-xl p-6 space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div className="space-y-2 font-mono text-sm">
+                      <div className="text-primary-400">const developer = {'{'} </div>
+                      <div className="ml-4 text-gray-300">name: "Edisson Facundo Aquino Toloza",</div>
+                      <div className="ml-4 text-gray-300">role: "Full-Stack Developer",</div>
+                      <div className="ml-4 text-gray-300">passion: "Real-world solutions",</div>
+                      <div className="ml-4 text-gray-300">experience: "2+ real projects",</div>
+                      <div className="text-primary-400"> {'}'};</div>
                     </div>
                   </div>
                 </div>
@@ -271,43 +261,31 @@ const About = () => {
               </p>
             </motion.div>
 
-            <div className="relative">
-              {/* Línea conectora vertical */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 via-primary-500 to-primary-600"></div>
-              
-              <div className="space-y-12">
-                {timeline.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="relative flex items-start space-x-8"
-                  >
-                    {/* Círculo del año */}
-                    <div className="flex-shrink-0 relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-dark-800 hover:scale-110 transition-transform duration-300">
-                        {item.year.includes('2024') ? '2024' : item.year.includes('2025') ? '2025' : item.year}
-                      </div>
-                      {/* Punto brillante en el centro */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent"></div>
+            <div className="space-y-8">
+              {timeline.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="flex items-start space-x-6"
+                >
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold">
+                      {item.year.split(' ')[0].slice(-2)}
                     </div>
-                    
-                    {/* Contenido */}
-                    <div className="flex-1 space-y-3 pb-8">
-                      <div className="bg-dark-800/50 backdrop-blur-sm rounded-xl p-6 border border-dark-700 hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10">
-                        <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-primary-400 transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-400 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                  <div className="flex-1 space-y-2">
+                    <h3 className="text-xl font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-400">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -337,7 +315,7 @@ const About = () => {
                   <ArrowLeft className="ml-2 w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180" />
                 </Link>
                 <a
-                  href="/CV_EdissonFacundoAquinoToloza.html"
+                  href="/CV_FacundoToloza_Mejorado.pdf"
                   download
                   className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center group"
                 >
