@@ -34,11 +34,6 @@ const Contact = () => {
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
       const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       
-      console.log('EmailJS Config:', {
-        serviceId,
-        templateId,
-        publicKey: publicKey ? 'Present' : 'Missing'
-      })
       
       if (!serviceId || !templateId || !publicKey) {
         throw new Error('EmailJS credentials not configured')
@@ -65,13 +60,16 @@ const Contact = () => {
       setFormData({ name: '', email: '', subject: '', message: '' })
       
     } catch (error) {
-      console.error('Error sending email:', error)
-      console.error('Error details:', {
-        serviceId: serviceId || 'Missing',
-        templateId: templateId || 'Missing',
-        publicKey: publicKey ? 'Present' : 'Missing',
-        templateParams
-      })
+      // Solo mostrar errores en desarrollo
+      if (import.meta.env.DEV) {
+        console.error('Error sending email:', error)
+        console.error('Error details:', {
+          serviceId: serviceId || 'Missing',
+          templateId: templateId || 'Missing',
+          publicKey: publicKey ? 'Present' : 'Missing',
+          templateParams
+        })
+      }
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
