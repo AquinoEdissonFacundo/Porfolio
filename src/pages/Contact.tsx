@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, ArrowLeft, Send, Github, Linkedin, Download } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const Contact = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -24,13 +26,56 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('idle')
     
-    // Simular envío (aquí integrarías con un servicio real como EmailJS)
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    alert('¡Mensaje enviado! Te contactaré pronto.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    setIsSubmitting(false)
+    try {
+      // Configuración de EmailJS desde variables de entorno
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      
+      console.log('EmailJS Config:', {
+        serviceId,
+        templateId,
+        publicKey: publicKey ? 'Present' : 'Missing'
+      })
+      
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS credentials not configured')
+      }
+      
+      const templateParams = {
+        // Variables que coinciden con tu plantilla de EmailJS
+        title: formData.subject,
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        time: new Date().toLocaleString('es-ES', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      }
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+      
+    } catch (error) {
+      console.error('Error sending email:', error)
+      console.error('Error details:', {
+        serviceId: serviceId || 'Missing',
+        templateId: templateId || 'Missing',
+        publicKey: publicKey ? 'Present' : 'Missing',
+        templateParams
+      })
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -191,6 +236,19 @@ const Contact = () => {
                       placeholder="Cuéntame sobre tu proyecto..."
                     />
                   </div>
+
+                  {/* Status Messages */}
+                  {submitStatus === 'success' && (
+                    <div className="p-4 bg-green-600/20 border border-green-600/30 rounded-lg text-green-400 text-center">
+                      ¡Mensaje enviado correctamente! Te contactaré pronto.
+                    </div>
+                  )}
+                  
+                  {submitStatus === 'error' && (
+                    <div className="p-4 bg-red-600/20 border border-red-600/30 rounded-lg text-red-400 text-center">
+                      Error al enviar el mensaje. Por favor, inténtalo de nuevo o contáctame directamente.
+                    </div>
+                  )}
 
                   <button
                     type="submit"
