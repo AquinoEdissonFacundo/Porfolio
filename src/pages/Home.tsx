@@ -162,7 +162,7 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <ProjectCard project={project} />
+                <ProjectCard project={project} isClickable={true} />
               </motion.div>
             ))}
           </div>

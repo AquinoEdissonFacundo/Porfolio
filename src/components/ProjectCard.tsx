@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink, Calendar, User } from 'lucide-react'
+import { ExternalLink, Calendar, User, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 interface Project {
   id: number
@@ -16,10 +17,11 @@ interface Project {
 
 interface ProjectCardProps {
   project: Project
+  isClickable?: boolean
 }
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
-  return (
+const ProjectCard = ({ project, isClickable = false }: ProjectCardProps) => {
+  const CardContent = () => (
     <motion.div
       whileHover={{ y: -5 }}
       className="card group cursor-pointer"
@@ -54,15 +56,21 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           />
         </div>
         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors"
-            aria-label={`Ver ${project.title} en vivo`}
-          >
-            <ExternalLink className="w-5 h-5 text-white" />
-          </a>
+          {isClickable ? (
+            <div className="p-3 bg-primary-600 rounded-lg">
+              <ArrowRight className="w-5 h-5 text-white" />
+            </div>
+          ) : (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors"
+              aria-label={`Ver ${project.title} en vivo`}
+            >
+              <ExternalLink className="w-5 h-5 text-white" />
+            </a>
+          )}
         </div>
       </div>
 
@@ -103,18 +111,35 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
         {/* Actions */}
         <div className="flex justify-center pt-2">
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors text-center"
-          >
-            Ver Proyecto
-          </a>
+          {isClickable ? (
+            <div className="w-full bg-primary-600 text-white px-4 py-2 rounded-lg text-sm font-medium text-center flex items-center justify-center">
+              Ver Detalles
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </div>
+          ) : (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors text-center"
+            >
+              Ver Proyecto
+            </a>
+          )}
         </div>
       </div>
     </motion.div>
   )
+
+  if (isClickable) {
+    return (
+      <Link to="/proyectos" className="block">
+        <CardContent />
+      </Link>
+    )
+  }
+
+  return <CardContent />
 }
 
 export default ProjectCard
