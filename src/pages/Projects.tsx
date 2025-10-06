@@ -76,7 +76,7 @@ const Projects = () => {
         setTimeout(() => {
           element.scrollIntoView({ 
             behavior: 'smooth',
-            block: 'start'
+            block: 'center'
           })
         }, 100)
       }
@@ -131,7 +131,7 @@ const Projects = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center scroll-mt-20"
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center scroll-mt-32"
                 >
                   {/* Project Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
