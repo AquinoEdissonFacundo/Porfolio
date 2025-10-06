@@ -20,7 +20,7 @@ function App() {
     <>
       <Helmet>
         <title>Edisson Facundo Aquino Toloza - Desarrollador Full-Stack</title>
-        <meta name="description" content="Desarrollador Full-Stack especializado en React, Node.js y PostgreSQL. Proyectos reales para clientes locales en Nordelta y Tigre." />
+        <meta name="description" content="Desarrollador Full Stack con experiencia en la creación de aplicaciones web eficientes y escalables. Me enfoco en resolver problemas reales mediante código limpio y experiencias de usuario optimizadas. He trabajado en proyectos para un centro terapéutico en Nordelta y una mueblería en Tigre, siempre adaptándome a los objetivos del negocio y mejorando continuamente mis habilidades." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",

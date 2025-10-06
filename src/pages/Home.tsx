@@ -48,6 +48,11 @@ const Home = () => {
       technologies: ['Git/GitHub', 'Vite', 'ESLint', 'WordPress REST API', 'SEO']
     },
     {
+      category: 'Deploy & Hosting',
+      icon: <Code2 className="w-6 h-6" />,
+      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway', 'Supabase']
+    },
+    {
       category: 'Performance',
       icon: <Zap className="w-6 h-6" />,
       technologies: ['Lighthouse', 'Core Web Vitals', 'WebP', 'Lazy Loading', 'JSON-LD']
@@ -75,8 +80,8 @@ const Home = () => {
                   Desarrollador Full-Stack
                 </h2>
                 <p className="text-lg text-gray-400 max-w-2xl">
-                  Especializado en React, Node.js y PostgreSQL. Creo soluciones web 
-                  eficientes y centradas en el usuario para clientes reales.
+                Me especializo en la creación de aplicaciones web eficientes y escalables. Me enfoco en resolver problemas reales mediante código limpio y experiencias de usuario optimizadas. He trabajado en proyectos para un centro terapéutico en Nordelta y una mueblería en Tigre, siempre adaptándome a los objetivos del negocio y mejorando continuamente mis habilidades.
+
                 </p>
               </div>
 
@@ -238,7 +243,7 @@ const Home = () => {
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="/CV_FacundoToloza_Mejorado.pdf"
+                href="/CvEdissonToloza2025.pdf"
                 download
                 className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center"
               >

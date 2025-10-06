@@ -1,3 +1,4 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import { Download, ArrowLeft, Code2, Database, Globe, Zap, Award, Users, Clock } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -23,6 +24,12 @@ const About = () => {
       icon: <Database className="w-6 h-6" />,
       technologies: ['Node.js 20', 'Express 5', 'PostgreSQL 15', 'RESTful APIs', 'JWT'],
       description: 'APIs robustas y bases de datos optimizadas'
+    },
+    {
+      category: 'Deploy & Hosting',
+      icon: <Globe className="w-6 h-6" />,
+      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway' , 'Supabase'],
+      description: 'Despliegue profesional y gestión de dominios con pipelines automatizados'
     },
     {
       category: 'Performance',
@@ -146,6 +153,11 @@ const About = () => {
                     mueblería en Tigre. Esta experiencia me ha enseñado la importancia de 
                     entender las necesidades del negocio, trabajar con deadlines y crear 
                     soluciones escalables que generen valor real.
+                  </p>
+                  <p>
+                    Además, tengo experiencia realizando despliegues en Vercel, Netlify, DonWeb, Hostinger y Railway, 
+                    incluyendo configuración de dominios, certificados SSL y pipelines de CI/CD para automatizar
+                    builds y releases.
                   </p>
                   <p>
                     Mi enfoque está en escribir código limpio, crear interfaces intuitivas 
@@ -315,7 +327,7 @@ const About = () => {
                   <ArrowLeft className="ml-2 w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180" />
                 </Link>
                 <a
-                  href="/CV_FacundoToloza_Mejorado.pdf"
+                  href="/CvEdissonToloza2025.pdf"
                   download
                   className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center group"
                 >
