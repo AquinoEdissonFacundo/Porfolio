@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Calendar, User, ArrowLeft } from 'lucide-react'
+import { ExternalLink, Calendar, User, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 
@@ -14,7 +14,6 @@ const Projects = () => {
       image: './ProyectoAvi.png',
       technologies: ['React 18', 'Sass', 'SEO Local', 'JSON-LD', 'Open Graph'],
       liveUrl: 'https://avi-chi.vercel.app/',
-      githubUrl: '#',
       client: 'Cliente real - Nordelta, Tigre',
       date: 'Enero 2024',
       features: [
@@ -44,7 +43,6 @@ const Projects = () => {
       image: './ProyectoMuebleria.png',
       technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap', 'Context API'],
       liveUrl: 'https://stronmuebles.com',
-      githubUrl: '#',
       client: 'Cliente real - Tigre',
       date: 'Septiembre 2025',
       features: [
@@ -203,7 +201,7 @@ const Projects = () => {
                     </div>
 
                     {/* Actions */}
-                    <div className="flex space-x-4">
+                    <div className="flex justify-center">
                       <a
                         href={project.liveUrl}
                         target="_blank"
@@ -212,16 +210,6 @@ const Projects = () => {
                       >
                         Ver Proyecto
                         <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </a>
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`inline-flex items-center ${project.githubUrl === '#' ? 'btn-disabled cursor-not-allowed opacity-50' : 'btn-secondary'}`}
-                        onClick={project.githubUrl === '#' ? (e) => e.preventDefault() : undefined}
-                      >
-                        <Github className="mr-2 w-4 h-4" />
-                        {project.githubUrl === '#' ? 'Código (Privado)' : 'Código'}
                       </a>
                     </div>
                   </div>
