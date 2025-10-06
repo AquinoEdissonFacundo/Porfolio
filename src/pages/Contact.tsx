@@ -28,13 +28,12 @@ const Contact = () => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
     
+    // Configuración de EmailJS desde variables de entorno
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    
     try {
-      // Configuración de EmailJS desde variables de entorno
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      
-      
       if (!serviceId || !templateId || !publicKey) {
         throw new Error('EmailJS credentials not configured')
       }
@@ -67,7 +66,12 @@ const Contact = () => {
           serviceId: serviceId || 'Missing',
           templateId: templateId || 'Missing',
           publicKey: publicKey ? 'Present' : 'Missing',
-          templateParams
+          templateParams: {
+            title: formData.subject,
+            name: formData.name,
+            email: formData.email,
+            message: formData.message
+          }
         })
       }
       setSubmitStatus('error')
