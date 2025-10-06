@@ -217,10 +217,11 @@ const Projects = () => {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-secondary inline-flex items-center"
+                        className={`inline-flex items-center ${project.githubUrl === '#' ? 'btn-disabled cursor-not-allowed opacity-50' : 'btn-secondary'}`}
+                        onClick={project.githubUrl === '#' ? (e) => e.preventDefault() : undefined}
                       >
                         <Github className="mr-2 w-4 h-4" />
-                        Código
+                        {project.githubUrl === '#' ? 'Código (Privado)' : 'Código'}
                       </a>
                     </div>
                   </div>
