@@ -133,7 +133,7 @@ const ProjectCard = ({ project, isClickable = false }: ProjectCardProps) => {
 
   if (isClickable) {
     return (
-      <Link to="/proyectos" className="block">
+      <Link to={`/proyectos#project-${project.id}`} className="block">
         <CardContent />
       </Link>
     )

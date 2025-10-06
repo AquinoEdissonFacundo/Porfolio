@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, Calendar, User, ArrowLeft } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -67,6 +67,22 @@ const Projects = () => {
     }
   ]
 
+  // Efecto para scroll suave cuando se navega a un proyecto específico
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const element = document.querySelector(hash)
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          })
+        }, 100)
+      }
+    }
+  }, [])
+
   return (
     <>
       <Helmet>
@@ -110,11 +126,12 @@ const Projects = () => {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
+                  id={`project-${project.id}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center scroll-mt-20"
                 >
                   {/* Project Image */}
                   <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
