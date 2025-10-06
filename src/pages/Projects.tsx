@@ -13,7 +13,7 @@ const Projects = () => {
       longDescription: 'Proyecto completo para centro de masajes terapéuticos en Nordelta. Implementé un diseño responsive y optimizado para móviles, ya que la mayoría de los clientes buscan servicios de masajes desde sus teléfonos. El sitio incluye información detallada sobre servicios, precios, ubicación y un sistema de contacto directo por WhatsApp.',
       image: './ProyectoAvi.png',
       technologies: ['React 18', 'Sass', 'SEO Local', 'JSON-LD', 'Open Graph'],
-      liveUrl: '#',
+      liveUrl: 'https://avi-chi.vercel.app/',
       githubUrl: '#',
       client: 'Cliente real - Nordelta, Tigre',
       date: 'Enero 2024',
