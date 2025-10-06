@@ -12,8 +12,7 @@ const Home = () => {
       description: 'Centro de masajes en Nordelta con enfoque en conversión por WhatsApp (Proyecto completado)',
       image: './ProyectoAvi.png',
       technologies: ['React 18', 'Sass', 'SEO Local'],
-      liveUrl: '#',
-      githubUrl: '#',
+      liveUrl: 'https://avi-chi.vercel.app/',
       featured: true,
       client: 'Cliente real - Nordelta, Tigre',
       date: 'Enero 2024',
@@ -26,7 +25,6 @@ const Home = () => {
       image: './ProyectoMuebleria.png',
       technologies: ['React 18', 'TypeScript', 'WordPress', 'Sitemap'],
       liveUrl: 'https://stronmuebles.com',
-      githubUrl: '#',
       featured: true,
       client: 'Cliente real - Tigre',
       date: 'Septiembre 2025'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Calendar, User } from 'lucide-react'
+import { ExternalLink, Calendar, User } from 'lucide-react'
 
 interface Project {
   id: number
@@ -9,7 +9,6 @@ interface Project {
   image: string
   technologies: string[]
   liveUrl: string
-  githubUrl: string
   featured: boolean
   client: string
   date: string
@@ -54,7 +53,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             }}
           />
         </div>
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-4">
+        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
           <a
             href={project.liveUrl}
             target="_blank"
@@ -63,15 +62,6 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             aria-label={`Ver ${project.title} en vivo`}
           >
             <ExternalLink className="w-5 h-5 text-white" />
-          </a>
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-dark-700 hover:bg-dark-600 rounded-lg transition-colors"
-            aria-label={`Ver código de ${project.title}`}
-          >
-            <Github className="w-5 h-5 text-white" />
           </a>
         </div>
       </div>
@@ -112,22 +102,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
 
         {/* Actions */}
-        <div className="flex space-x-3 pt-2">
+        <div className="flex justify-center pt-2">
           <a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors text-center"
+            className="w-full bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors text-center"
           >
             Ver Proyecto
-          </a>
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 border border-dark-600 hover:border-primary-500 text-gray-300 hover:text-primary-400 rounded-lg text-sm font-medium transition-colors"
-          >
-            Código
           </a>
         </div>
       </div>
