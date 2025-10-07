@@ -144,7 +144,7 @@ const Contact = () => {
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      url: 'https://www.linkedin.com/in/facundo-toloza/',
+      url: 'https://www.linkedin.com/in/facundo-toloza-desarrollador-web/',
       color: 'hover:text-blue-400'
     }
   ]

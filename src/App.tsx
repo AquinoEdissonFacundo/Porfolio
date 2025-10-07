@@ -33,7 +33,7 @@ function App() {
             "telephone": "+54911605658519",
             "sameAs": [
               "https://github.com/AquinoEdissonFacundo",
-              "https://www.linkedin.com/in/facundo-toloza/"
+              "https://www.linkedin.com/in/facundo-toloza-desarrollador-web/"
             ],
             "knowsAbout": [
               "JavaScript",

@@ -10,10 +10,33 @@ const Header = () => {
     { name: 'Inicio', path: '/' },
     { name: 'Sobre Mí', path: '/sobre-mi' },
     { name: 'Proyectos', path: '/proyectos' },
+    { name: 'Habilidades', path: '/#habilidades' },
     { name: 'Contacto', path: '/contacto' },
   ]
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path: string) => {
+    if (path.includes('#')) {
+      return location.pathname === path.split('#')[0] && location.hash === '#' + path.split('#')[1]
+    }
+    return location.pathname === path
+  }
+
+  const handleNavClick = (path: string) => {
+    if (path.includes('#')) {
+      const [route, hash] = path.split('#')
+      if (location.pathname !== route) {
+        // Si no estamos en la página correcta, navegar primero
+        window.location.href = path
+      } else {
+        // Si ya estamos en la página, solo hacer scroll
+        const element = document.getElementById(hash)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }
+    setIsMenuOpen(false)
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-700">
@@ -32,17 +55,31 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`px-3 py-2 rounded-lg font-medium transition-colors ${
-                  isActive(item.path)
-                    ? 'text-primary-400 bg-primary-600/20'
-                    : 'text-gray-300 hover:text-white hover:bg-dark-800'
-                }`}
-              >
-                {item.name}
-              </Link>
+              item.path.includes('#') ? (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavClick(item.path)}
+                  className={`px-3 py-2 rounded-lg font-medium transition-colors ${
+                    isActive(item.path)
+                      ? 'text-primary-400 bg-primary-600/20'
+                      : 'text-gray-300 hover:text-white hover:bg-dark-800'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`px-3 py-2 rounded-lg font-medium transition-colors ${
+                    isActive(item.path)
+                      ? 'text-primary-400 bg-primary-600/20'
+                      : 'text-gray-300 hover:text-white hover:bg-dark-800'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -60,18 +97,32 @@ const Header = () => {
           <div className="md:hidden border-t border-dark-700 bg-dark-900">
             <nav className="py-4 space-y-2">
               {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-primary-400 bg-primary-600/20'
-                      : 'text-gray-300 hover:text-white hover:bg-dark-800'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                item.path.includes('#') ? (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.path)}
+                    className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-colors ${
+                      isActive(item.path)
+                        ? 'text-primary-400 bg-primary-600/20'
+                        : 'text-gray-300 hover:text-white hover:bg-dark-800'
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
+                      isActive(item.path)
+                        ? 'text-primary-400 bg-primary-600/20'
+                        : 'text-gray-300 hover:text-white hover:bg-dark-800'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </nav>
           </div>
