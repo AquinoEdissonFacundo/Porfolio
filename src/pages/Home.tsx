@@ -91,7 +91,7 @@ const Home = () => {
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <Link to="/contacto" className="btn-secondary inline-flex items-center justify-center">
-                  Contactar
+                  Agendar Reunión
                 </Link>
               </div>
 
@@ -235,11 +235,11 @@ const Home = () => {
                 ¿Buscas un desarrollador?
               </h2>
               <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-              Estoy listo para aportar valor al equipo y crecer profesionalmente.
+              Agendemos una reunión para discutir cómo puedo aportar valor a tu proyecto.
               </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contacto" className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center group">
-                Contactar Ahora
+                Agendar Reunión
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a

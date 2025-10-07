@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, ArrowLeft, Send, Github, Linkedin, Download } from 'lucide-react'
+import { Mail, Phone, MapPin, ArrowLeft, Send, Github, Linkedin, Download, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import emailjs from '@emailjs/browser'
@@ -15,6 +15,39 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  // Inicializar Google Calendar cuando se carga el componente
+  useEffect(() => {
+    let isInitialized = false;
+    
+    const initGoogleCalendar = () => {
+      if (isInitialized) return; // Evitar duplicados
+      
+      if (window.calendar && window.calendar.schedulingButton) {
+        const target = document.getElementById('calendar-scheduling-button');
+        if (target && !target.hasChildNodes()) { // Solo si no tiene botones
+          calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2ktTW5FdfE7c5NUnH_7Y_dzlcaFD62ecjHXfNinq0QutVvij2iKBnYU6HuKkuvU9NtOxm5kSXb?gv=true',
+            color: '#039BE5',
+            label: 'Programar una cita',
+            target,
+          });
+          isInitialized = true;
+        }
+      } else {
+        // Si Google Calendar no está listo, reintentar
+        setTimeout(initGoogleCalendar, 100);
+      }
+    };
+
+    // Inicializar después de un pequeño delay para asegurar que el DOM esté listo
+    setTimeout(initGoogleCalendar, 100);
+    
+    // Cleanup function para evitar memory leaks
+    return () => {
+      isInitialized = true;
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -371,19 +404,17 @@ const Contact = () => {
               className="space-y-6"
             >
               <h2 className="text-3xl md:text-4xl font-bold text-white">
-                ¿Listo para conocerme?
+              ¿Listo para trabajar juntos?
               </h2>
               <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-                Estoy listo para una entrevista y demostrar cómo puedo aportar valor a tu equipo.
+              Organicemos una breve reunión para analizar cómo puedo ayudarte a impulsar los resultados de tu proyecto.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="mailto:aquinoedissonfacundo@gmail.com"
-                  className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center group"
+                <div 
+                  id="calendar-scheduling-button"
+                  className="inline-block"
                 >
-                  <Mail className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" />
-                  Solicitar Entrevista
-                </a>
+                </div>
                 <Link 
                   to="/proyectos" 
                   className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center"
