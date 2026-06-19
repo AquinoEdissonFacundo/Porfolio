@@ -7,32 +7,37 @@ import { Helmet } from 'react-helmet-async'
 const Projects = () => {
   const projects = [
     {
-      id: 1,
-      title: 'AviDelta.online',
-      description: 'Sitio web completo para centro de masajes en Nordelta y Tigre. Desarrollado con enfoque en conversión por WhatsApp y SEO local para atraer clientes de la zona. (Proyecto completado - dominio no renovado)',
-      longDescription: 'Proyecto completo para centro de masajes terapéuticos en Nordelta. Implementé un diseño responsive y optimizado para móviles, ya que la mayoría de los clientes buscan servicios de masajes desde sus teléfonos. El sitio incluye información detallada sobre servicios, precios, ubicación y un sistema de contacto directo por WhatsApp.',
-      image: './ProyectoAvi.png',
-      technologies: ['React 18', 'Sass', 'SEO Local', 'JSON-LD', 'Open Graph'],
-      liveUrl: 'https://avi-chi.vercel.app/',
-      client: 'Cliente real - Nordelta, Tigre',
-      date: 'Enero 2024',
+      id: 3,
+      title: 'Studio Suite',
+      description: 'SaaS + CRM multi-tenant para centros de belleza: turnos, clientes, pagos y staff en una sola plataforma. Reservas online con seña obligatoria vía Mercado Pago (OAuth por tenant), recordatorios automáticos con Inngest y métricas en tiempo real.',
+      longDescription: 'Plataforma SaaS construida para resolver un problema real: Valentina, dueña de un estudio de uñas en Palermo, perdía plata por no-shows y administraba todo por WhatsApp. Cada estudio tiene su propio tenant aislado con agenda visual (día/semana), CRM de clientes con historial y gasto total, gestión de staff con roles diferenciados y portal de booking público. Las clientas reservan 24/7 y dejan una seña directamente en la cuenta de Mercado Pago del estudio (OAuth por tenant, sin intermediarios). Inngest maneja los recordatorios T-72h, T-24h y T-2h con reintentos automáticos. La disponibilidad de slots se cachea en Upstash Redis y la inserción de turnos usa SELECT FOR UPDATE + constraint GIST en PostgreSQL para prevenir race conditions.',
+      image: './studioSuite.png',
+      technologies: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'PostgreSQL (Neon)', 'Drizzle ORM', 'Mercado Pago OAuth', 'Inngest', 'Upstash Redis', 'Better Auth', 'Resend', 'Vercel'],
+      liveUrl: 'https://studio-suite-lac.vercel.app/',
+      client: 'Producto propio (SaaS)',
+      date: 'Junio 2026',
       features: [
-        'Diseño responsive optimizado para móviles',
-        'SEO local con JSON-LD LocalBusiness',
-        'Metadatos Open Graph para redes sociales',
-        'Optimización de performance con imágenes WebP',
-        'Sistema de contacto directo por WhatsApp',
-        'Navegación intuitiva y accesible'
+        'Arquitectura multi-tenant con row-level isolation por studioId',
+        'Booking público 24/7 con seña obligatoria vía Mercado Pago',
+        'OAuth de MP por tenant: el dinero va directo al dueño del estudio',
+        'Agenda visual día/semana con drag & drop para reprogramar',
+        'Recordatorios automáticos T-72h, T-24h y T-2h con Inngest',
+        'CRM de clientes: historial de visitas, gasto total y preferencias',
+        'Roles por tenant: owner, admin, recepcionista y staff con agenda propia',
+        'Panel de métricas: ingresos, servicios más pedidos y profesionales top',
+        'Prevención de race conditions con SELECT FOR UPDATE + constraint GIST'
       ],
       challenges: [
-        'Optimizar para dispositivos móviles (principal audiencia)',
-        'Implementar SEO local efectivo para competir con centros establecidos',
-        'Crear un flujo de conversión claro hacia WhatsApp'
+        'Diseñar multi-tenancy seguro: el tenant se resuelve desde la URL, nunca del cliente',
+        'Integrar Mercado Pago OAuth por tenant con validación HMAC en webhooks',
+        'Prevenir reservas duplicadas bajo concurrencia con bloqueos a nivel DB',
+        'Garantizar ejecución confiable de recordatorios con Inngest y reintentos'
       ],
       results: [
-        'Sitio web profesional y funcional',
-        'Mejora en la presencia online del negocio',
-        'Interfaz optimizada para la audiencia objetivo'
+        'Producto SaaS funcional desplegado en producción en Vercel',
+        'Elimina no-shows con seña obligatoria al reservar',
+        'Reemplaza WhatsApp + libreta por agenda digital con métricas reales',
+        'Flujo completo: booking → pago → confirmación → recordatorios automáticos'
       ]
     },
     {
@@ -87,7 +92,7 @@ const Projects = () => {
     <>
       <Helmet>
         <title>Proyectos - Edisson Facundo Aquino Toloza</title>
-        <meta name="description" content="Proyectos reales desarrollados para clientes locales. AviDelta.online (centro de masajes) y StronMuebles.com (mueblería) con React, Node.js y tecnologías modernas." />
+        <meta name="description" content="Proyectos reales: Studio Suite (SaaS para centros de belleza), AviDelta.online (centro de masajes) y StronMuebles.com (mueblería), desarrollados con Next.js, React, TypeScript y tecnologías modernas." />
       </Helmet>
 
       <div className="pt-16">

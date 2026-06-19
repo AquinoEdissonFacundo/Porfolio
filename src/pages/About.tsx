@@ -16,26 +16,26 @@ const About = () => {
     {
       category: 'Frontend',
       icon: <Globe className="w-6 h-6" />,
-      technologies: ['JavaScript (ES6+)', 'React 18', 'TypeScript', 'CSS Modules', 'Sass', 'Tailwind CSS'],
-      description: 'Desarrollo de interfaces de usuario modernas y responsivas'
+      technologies: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'JavaScript (ES6+)'],
+      description: 'Interfaces modernas, accesibles y optimizadas para producción'
     },
     {
       category: 'Backend',
       icon: <Database className="w-6 h-6" />,
-      technologies: ['Node.js 20', 'Express 5', 'PostgreSQL 15', 'RESTful APIs', 'JWT'],
-      description: 'APIs robustas y bases de datos optimizadas'
+      technologies: ['PostgreSQL (Neon)', 'Drizzle ORM', 'Better Auth', 'Mercado Pago', 'RESTful APIs'],
+      description: 'APIs robustas, autenticación server-side y pagos integrados'
+    },
+    {
+      category: 'Infraestructura',
+      icon: <Zap className="w-6 h-6" />,
+      technologies: ['Inngest (background jobs)', 'Upstash Redis', 'Resend', 'Sentry', 'Neon serverless'],
+      description: 'Arquitecturas serverless con jobs confiables y caché distribuida'
     },
     {
       category: 'Deploy & Hosting',
       icon: <Globe className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway' , 'Supabase'],
-      description: 'Despliegue profesional y gestión de dominios con pipelines automatizados'
-    },
-    {
-      category: 'Performance',
-      icon: <Zap className="w-6 h-6" />,
-      technologies: ['Lighthouse', 'Core Web Vitals', 'WebP', 'Lazy Loading', 'JSON-LD'],
-      description: 'Optimización para velocidad y SEO'
+      technologies: ['Vercel', 'Netlify', 'Railway', 'DonWeb', 'Hostinger', 'Supabase'],
+      description: 'Despliegue profesional con pipelines de CI/CD automatizados'
     }
   ]
 
@@ -43,22 +43,22 @@ const About = () => {
     {
       year: '2024',
       title: 'Inicio del Desarrollo Web',
-      description: 'Comencé mi formación en desarrollo web con HENRY, enfocándome en tecnologías modernas como React y Node.js.'
-    },
-    {
-      year: 'Enero 2024',
-      title: 'Primer Proyecto Real - AviDelta',
-      description: 'Desarrollé mi primer sitio web para un cliente real: un centro de masajes en Nordelta con enfoque en SEO local.'
+      description: 'Comencé mi formación en desarrollo web con HENRY, completando más de 800 horas en React, Node.js y PostgreSQL.'
     },
     {
       year: '2024',
-      title: 'Certificaciones Completadas',
+      title: 'Certificaciones',
       description: 'Obtuve certificaciones en JavaScript, React y desarrollo web responsive de freeCodeCamp y Platzi.'
     },
     {
       year: 'Septiembre 2025',
-      title: 'Proyecto Avanzado - StronMuebles',
-      description: 'Creé un e-commerce completo con TypeScript, integración WordPress y sistema de rutas personalizado.'
+      title: 'StronMuebles.com',
+      description: 'E-commerce para mueblería en Tigre con TypeScript, integración WordPress REST API y sistema de rutas personalizado.'
+    },
+    {
+      year: 'Junio 2026',
+      title: 'Studio Suite — SaaS + CRM',
+      description: 'Construí un SaaS multi-tenant para centros de belleza: booking público, señas con Mercado Pago OAuth, recordatorios con Inngest y panel de métricas en tiempo real.'
     }
   ]
 
@@ -148,11 +148,11 @@ const About = () => {
                     que resuelvan problemas reales.
                   </p>
                   <p>
-                    He desarrollado proyectos reales para empresas locales, 
-                    incluyendo un centro de masajes en Nordelta y una 
-                    mueblería en Tigre. Esta experiencia me ha enseñado la importancia de 
-                    entender las necesidades del negocio, trabajar con deadlines y crear 
-                    soluciones escalables que generen valor real.
+                    He desarrollado proyectos reales para clientes locales como una mueblería en Tigre,
+                    y construí Studio Suite, un SaaS + CRM multi-tenant para centros de belleza
+                    con pagos integrados, arquitectura serverless y background jobs confiables.
+                    Esta experiencia me enseñó a entender las necesidades del negocio, trabajar
+                    con deadlines y crear soluciones escalables que generan valor real.
                   </p>
                   <p>
                     Además, tengo experiencia realizando despliegues en Vercel, Netlify, DonWeb, Hostinger y Railway, 
@@ -183,10 +183,10 @@ const About = () => {
                     </div>
                     <div className="space-y-2 font-mono text-sm">
                       <div className="text-primary-400">const developer = {'{'} </div>
-                      <div className="ml-4 text-gray-300">name: "Edisson Facundo Aquino Toloza",</div>
-                      <div className="ml-4 text-gray-300">role: "Full-Stack Developer",</div>
-                      <div className="ml-4 text-gray-300">passion: "Real-world solutions",</div>
-                      <div className="ml-4 text-gray-300">experience: "2+ real projects",</div>
+                      <div className="ml-4 text-gray-300">name: <span className="text-green-400">"Edisson Toloza"</span>,</div>
+                      <div className="ml-4 text-gray-300">role: <span className="text-green-400">"Full-Stack Developer"</span>,</div>
+                      <div className="ml-4 text-gray-300">stack: <span className="text-yellow-400">["Next.js", "React", "PostgreSQL"]</span>,</div>
+                      <div className="ml-4 text-gray-300">shipped: <span className="text-green-400">"Studio Suite (SaaS)"</span>,</div>
                       <div className="text-primary-400"> {'}'};</div>
                     </div>
                   </div>

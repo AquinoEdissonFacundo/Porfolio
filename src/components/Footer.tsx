@@ -81,7 +81,7 @@ const Footer = () => {
 
         <div className="border-t border-dark-700 mt-8 pt-8 text-center">
           <p className="text-gray-400 text-sm">
-            © 2025 Edisson Facundo Aquino Toloza. Todos los derechos reservados.
+            © 2026 Edisson Facundo Aquino Toloza. Todos los derechos reservados.
           </p>
         </div>
       </div>

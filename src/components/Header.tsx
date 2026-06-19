@@ -10,7 +10,6 @@ const Header = () => {
     { name: 'Inicio', path: '/' },
     { name: 'Sobre Mí', path: '/sobre-mi' },
     { name: 'Proyectos', path: '/proyectos' },
-    { name: 'Habilidades', path: '/#habilidades' },
     { name: 'Contacto', path: '/contacto' },
   ]
 
@@ -48,7 +47,7 @@ const Header = () => {
               <Code2 className="w-6 h-6 text-white" />
             </div>
             <span className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors">
-              Edisson Facundo Aquino Toloza
+              Edisson Toloza
             </span>
           </Link>
 

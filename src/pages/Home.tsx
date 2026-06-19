@@ -7,23 +7,22 @@ import SkillCard from '../components/SkillCard'
 const Home = () => {
   const projects = [
     {
-      id: 1,
-      title: 'AviDelta.online',
-      description: 'Centro de masajes en Nordelta con enfoque en conversión por WhatsApp (Proyecto completado)',
-      image: './ProyectoAvi.png',
-      technologies: ['React 18', 'Sass', 'SEO Local'],
-      liveUrl: 'https://avi-chi.vercel.app/',
+      id: 3,
+      title: 'Studio Suite',
+      description: 'SaaS + CRM multi-tenant para centros de belleza: turnos, clientes, pagos y staff. Reservas online 24/7 con seña obligatoria vía Mercado Pago OAuth.',
+      image: './studioSuite.png',
+      technologies: ['Next.js 16', 'TypeScript', 'PostgreSQL', 'Mercado Pago', 'Inngest', 'Redis'],
+      liveUrl: 'https://studio-suite-lac.vercel.app/',
       featured: true,
-      client: 'Cliente real - Nordelta, Tigre',
-      date: 'Enero 2024',
-      status: 'Completado'
+      client: 'Producto propio (SaaS)',
+      date: 'Junio 2026'
     },
     {
       id: 2,
       title: 'StronMuebles.com',
-      description: 'Catálogo de mueblería con integración WordPress y sistema de rutas',
+      description: 'Catálogo de mueblería con integración WordPress y sistema de rutas personalizado.',
       image: './ProyectoMuebleria.png',
-      technologies: ['React 18', 'TypeScript', 'WordPress', 'Sitemap'],
+      technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap'],
       liveUrl: 'https://stronmuebles.com',
       featured: true,
       client: 'Cliente real - Tigre',
@@ -35,27 +34,27 @@ const Home = () => {
     {
       category: 'Frontend',
       icon: <Globe className="w-6 h-6" />,
-      technologies: ['JavaScript (ES6+)', 'React 18', 'TypeScript', 'CSS Modules', 'Sass', 'Tailwind CSS']
+      technologies: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'JavaScript (ES6+)']
     },
     {
       category: 'Backend',
       icon: <Database className="w-6 h-6" />,
-      technologies: ['Node.js 20', 'Express 5', 'PostgreSQL 15', 'RESTful APIs', 'JWT']
+      technologies: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'RESTful APIs', 'Better Auth', 'Mercado Pago']
+    },
+    {
+      category: 'Infraestructura',
+      icon: <Zap className="w-6 h-6" />,
+      technologies: ['Inngest', 'Upstash Redis', 'Resend', 'Sentry', 'Neon (serverless)']
     },
     {
       category: 'Herramientas',
       icon: <Code2 className="w-6 h-6" />,
-      technologies: ['Git/GitHub', 'Vite', 'ESLint', 'WordPress REST API', 'SEO']
+      technologies: ['Git/GitHub', 'Vite', 'WordPress REST API', 'SEO', 'JSON-LD']
     },
     {
       category: 'Deploy & Hosting',
       icon: <Code2 className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'DonWeb', 'Hostinger', 'Railway', 'Supabase']
-    },
-    {
-      category: 'Performance',
-      icon: <Zap className="w-6 h-6" />,
-      technologies: ['Lighthouse', 'Core Web Vitals', 'WebP', 'Lazy Loading', 'JSON-LD']
+      technologies: ['Vercel', 'Netlify', 'Railway', 'Supabase', 'DonWeb', 'Hostinger']
     }
   ]
 
@@ -80,8 +79,7 @@ const Home = () => {
                   Desarrollador Full-Stack
                 </h2>
                 <p className="text-lg text-gray-400 max-w-2xl">
-                Me especializo en la creación de aplicaciones web eficientes y escalables. Me enfoco en resolver problemas reales mediante código limpio y experiencias de usuario optimizadas. He trabajado en proyectos para un centro terapéutico en Nordelta y una mueblería en Tigre, siempre adaptándome a los objetivos del negocio y mejorando continuamente mis habilidades.
-
+                  Me especializo en aplicaciones web eficientes y escalables, enfocado en resolver problemas reales con código limpio. Construí Studio Suite, un SaaS + CRM multi-tenant para centros de belleza con pagos integrados y arquitectura serverless, y desarrollé proyectos para clientes reales como una mueblería en Tigre. Siempre orientado a los objetivos del negocio.
                 </p>
               </div>
 
@@ -123,14 +121,15 @@ const Home = () => {
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <span className="text-gray-500 text-xs font-mono ml-2">studio-suite/booking.ts</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="h-4 bg-primary-600/30 rounded w-3/4"></div>
-                    <div className="h-4 bg-primary-600/30 rounded w-1/2"></div>
-                    <div className="h-4 bg-primary-600/30 rounded w-2/3"></div>
-                  </div>
-                  <div className="text-primary-400 text-sm font-mono">
-                    const developer = "Facundo Toloza"
+                  <div className="space-y-1 font-mono text-xs leading-relaxed">
+                    <div className="text-gray-500">{"// prevenir race conditions en reservas"}</div>
+                    <div><span className="text-primary-400">await</span> <span className="text-white">db.transaction</span><span className="text-gray-400">(async (tx) {"=> {"}</span></div>
+                    <div className="ml-4"><span className="text-primary-400">await</span> <span className="text-white">tx.execute</span><span className="text-gray-400">(</span><span className="text-green-400">sql`SELECT FOR UPDATE`</span><span className="text-gray-400">)</span></div>
+                    <div className="ml-4"><span className="text-primary-400">await</span> <span className="text-white">insertBooking</span><span className="text-gray-400">{"({ studioId, slot })"}</span></div>
+                    <div><span className="text-gray-400">{"});"}</span></div>
+                    <div className="mt-2"><span className="text-primary-400">await</span> <span className="text-white">inngest.send</span><span className="text-gray-400">{"({ name: "}</span><span className="text-green-400">"booking/confirmed"</span><span className="text-gray-400">{" })"}</span></div>
                   </div>
                 </div>
               </div>
