@@ -20,7 +20,7 @@ const Projects = () => {
         'Arquitectura multi-tenant con row-level isolation por studioId',
         'Booking público 24/7 con seña obligatoria vía Mercado Pago',
         'OAuth de MP por tenant: el dinero va directo al dueño del estudio',
-        'Agenda visual día/semana con drag & drop para reprogramar',
+        'Agenda visual día/semana con vistas por profesional',
         'Recordatorios automáticos T-72h, T-24h y T-2h con Inngest',
         'CRM de clientes: historial de visitas, gasto total y preferencias',
         'Roles por tenant: owner, admin, recepcionista y staff con agenda propia',
