@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Code2 } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -8,123 +8,74 @@ const Header = () => {
 
   const navItems = [
     { name: 'Inicio', path: '/' },
-    { name: 'Sobre Mí', path: '/sobre-mi' },
-    { name: 'Proyectos', path: '/proyectos' },
+    { name: 'Casos de éxito', path: '/casos-de-exito' },
+    { name: 'Cómo trabajo', path: '/como-trabajo' },
     { name: 'Contacto', path: '/contacto' },
   ]
 
-  const isActive = (path: string) => {
-    if (path.includes('#')) {
-      return location.pathname === path.split('#')[0] && location.hash === '#' + path.split('#')[1]
-    }
-    return location.pathname === path
-  }
-
-  const handleNavClick = (path: string) => {
-    if (path.includes('#')) {
-      const [route, hash] = path.split('#')
-      if (location.pathname !== route) {
-        // Si no estamos en la página correcta, navegar primero
-        window.location.href = path
-      } else {
-        // Si ya estamos en la página, solo hacer scroll
-        const element = document.getElementById(hash)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }
-      }
-    }
-    setIsMenuOpen(false)
-  }
+  const isActive = (path: string) => location.pathname === path
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-700">
-      <div className="container-max px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 bg-primary-600 rounded-lg group-hover:bg-primary-500 transition-colors">
-              <Code2 className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors">
-              Edisson Toloza
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="container-max">
+        <div className="flex items-center justify-between h-16 px-6">
+          <Link to="/" className="flex items-center gap-3 text-lg font-semibold text-foreground">
+            <span className="flex items-center justify-center w-8 h-8 rounded-md bg-background border border-border font-mono text-xs text-accent tracking-wider">
+              {'</>'}
             </span>
+            Edisson Toloza
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              item.path.includes('#') ? (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.path)}
-                  className={`px-3 py-2 rounded-lg font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-primary-400 bg-primary-600/20'
-                      : 'text-gray-300 hover:text-white hover:bg-dark-800'
-                  }`}
-                >
-                  {item.name}
-                </button>
-              ) : (
+          <nav className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => {
+              const active = isActive(item.path)
+              return (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`px-3 py-2 rounded-lg font-medium transition-colors ${
-                    isActive(item.path)
-                      ? 'text-primary-400 bg-primary-600/20'
-                      : 'text-gray-300 hover:text-white hover:bg-dark-800'
+                  className={`relative py-2 text-sm transition-colors ${
+                    active ? 'text-foreground' : 'text-muted hover:text-foreground'
                   }`}
                 >
                   {item.name}
+                  {active && (
+                    <span className="absolute left-0 right-0 -bottom-px h-px bg-accent" />
+                  )}
                 </Link>
               )
-            ))}
+            })}
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-white hover:bg-dark-800 rounded-lg transition-colors"
+            className="md:hidden p-2 text-muted hover:text-foreground transition-colors"
+            aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-dark-700 bg-dark-900">
-            <nav className="py-4 space-y-2">
-              {navItems.map((item) => (
-                item.path.includes('#') ? (
-                  <button
-                    key={item.name}
-                    onClick={() => handleNavClick(item.path)}
-                    className={`block w-full text-left px-4 py-3 rounded-lg font-medium transition-colors ${
-                      isActive(item.path)
-                        ? 'text-primary-400 bg-primary-600/20'
-                        : 'text-gray-300 hover:text-white hover:bg-dark-800'
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
-                      isActive(item.path)
-                        ? 'text-primary-400 bg-primary-600/20'
-                        : 'text-gray-300 hover:text-white hover:bg-dark-800'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              ))}
-            </nav>
-          </div>
+          <nav className="md:hidden border-t border-border">
+            {navItems.map((item) => {
+              const active = isActive(item.path)
+              return (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-6 py-3 text-sm transition-colors ${
+                    active ? 'text-foreground' : 'text-muted hover:text-foreground'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
+            })}
+          </nav>
         )}
       </div>
     </header>

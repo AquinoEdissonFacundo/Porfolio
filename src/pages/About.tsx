@@ -1,300 +1,252 @@
-import React from 'react'
 import { motion } from 'framer-motion'
-import { Download, ArrowLeft, Code2, Database, Globe, Zap, Award, Users, Clock } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 
 const About = () => {
-  const stats = [
-    { icon: <Code2 className="w-6 h-6" />, label: 'Proyectos Completados', value: '2+' },
-    { icon: <Users className="w-6 h-6" />, label: 'Clientes Satisfechos', value: '2' },
-    { icon: <Clock className="w-6 h-6" />, label: 'Horas de Estudio', value: '800+' },
-    { icon: <Award className="w-6 h-6" />, label: 'Certificaciones', value: '4' }
+  const philosophy = [
+    {
+      title: 'El código es un medio, el negocio es el fin',
+      description: 'Cada línea que escribo busca resolver un problema real, no lucirse.'
+    },
+    {
+      title: 'Simple por fuera, sólido por dentro',
+      description: 'Interfaces claras respaldadas por arquitecturas pensadas para durar.'
+    },
+    {
+      title: 'Cada entrega funciona en producción',
+      description: 'No entrego demos. Entrego software que opera de verdad.'
+    }
   ]
 
-  const skills = [
-    {
-      category: 'Frontend',
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'JavaScript (ES6+)'],
-      description: 'Interfaces modernas, accesibles y optimizadas para producción'
-    },
-    {
-      category: 'Backend',
-      icon: <Database className="w-6 h-6" />,
-      technologies: ['PostgreSQL (Neon)', 'Drizzle ORM', 'Better Auth', 'Mercado Pago', 'RESTful APIs'],
-      description: 'APIs robustas, autenticación server-side y pagos integrados'
-    },
-    {
-      category: 'Infraestructura',
-      icon: <Zap className="w-6 h-6" />,
-      technologies: ['Inngest (background jobs)', 'Upstash Redis', 'Resend', 'Sentry', 'Neon serverless'],
-      description: 'Arquitecturas serverless con jobs confiables y caché distribuida'
-    },
-    {
-      category: 'Deploy & Hosting',
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'Railway', 'DonWeb', 'Hostinger', 'Supabase'],
-      description: 'Despliegue profesional con pipelines de CI/CD automatizados'
-    }
+  const expectations = [
+    'Comunicación clara',
+    'Entregas iterativas',
+    'Código mantenible',
+    'Sin sorpresas',
+    'Pensado para crecer',
   ]
 
   const timeline = [
-    {
-      year: '2024',
-      title: 'Inicio del Desarrollo Web',
-      description: 'Comencé mi formación en desarrollo web con HENRY, completando más de 800 horas en React, Node.js y PostgreSQL.'
-    },
-    {
-      year: '2024',
-      title: 'Certificaciones',
-      description: 'Obtuve certificaciones en JavaScript, React y desarrollo web responsive de freeCodeCamp y Platzi.'
-    },
-    {
-      year: 'Septiembre 2025',
-      title: 'StronMuebles.com',
-      description: 'E-commerce para mueblería en Tigre con TypeScript, integración WordPress REST API y sistema de rutas personalizado.'
-    },
-    {
-      year: 'Junio 2026',
-      title: 'Studio Suite — SaaS + CRM',
-      description: 'Construí un SaaS multi-tenant para centros de belleza: booking público, señas con Mercado Pago OAuth, recordatorios con Inngest y panel de métricas en tiempo real.'
-    }
+    { year: '2024', description: 'Comienzo como desarrollador.' },
+    { year: '2025', description: 'Primeros productos en producción.' },
+    { year: '2026', description: 'Especialización en software para negocios.' },
+    { year: 'Hoy', description: 'Construyendo soluciones para empresas.' },
+  ]
+
+  const technologies = [
+    { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'] },
+    { category: 'Backend', items: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'Better Auth'] },
+    { category: 'Infraestructura', items: ['Inngest', 'Upstash Redis', 'Resend', 'Sentry'] },
+    { category: 'Deploy', items: ['Vercel', 'Railway', 'Supabase', 'Hostinger'] },
   ]
 
   return (
     <>
       <Helmet>
-        <title>Sobre Mí - Edisson Facundo Aquino Toloza</title>
-        <meta name="description" content="Conoce mi historia como desarrollador Full-Stack. Formación en Henry, proyectos reales para clientes locales y pasión por crear soluciones web eficientes." />
+        <title>Cómo trabajo — Edisson Toloza</title>
+        <meta name="description" content="Filosofía de trabajo, proceso y experiencia de Edisson Toloza desarrollando software para empresas." />
       </Helmet>
 
       <div className="pt-16">
         {/* Header */}
-        <section className="section-padding bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
+        <section className="section-padding">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center space-y-6"
+              className="max-w-2xl"
             >
-              <Link 
-                to="/" 
-                className="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors group"
-              >
-                <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-                Volver al Inicio
-              </Link>
-              
-              <h1 className="text-4xl md:text-5xl font-bold text-white">
-                Sobre <span className="gradient-text">Mí</span>
+              <span className="eyebrow">Cómo trabajo</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mt-3">
+                Un proceso claro, pensado para tu negocio
               </h1>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Desarrollador Full-Stack apasionado por crear soluciones web 
-                que marquen la diferencia en el mundo real.
+              <p className="text-lg text-muted mt-4">
+                Antes de escribir código, entiendo el problema. Así trabajo en cada proyecto.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Stats */}
-        <section className="section-padding bg-dark-800">
+        {/* Filosofía */}
+        <section className="section-padding border-t border-border">
           <div className="container-max">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {philosophy.map((item, index) => (
                 <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center space-y-2"
+                  className="card"
                 >
-                  <div className="w-12 h-12 bg-primary-600/20 rounded-lg mx-auto flex items-center justify-center text-primary-400">
-                    {stat.icon}
-                  </div>
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted">{item.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Story */}
-        <section className="section-padding">
-          <div className="container-max">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <h2 className="text-3xl font-bold text-white">
-                  Mi Historia
-                </h2>
-                <div className="space-y-4 text-gray-300">
-                  <p>
-                    Mi nombre es Edisson Facundo Aquino Toloza y soy un desarrollador Full-Stack 
-                    apasionado por crear soluciones web que realmente funcionen en el mundo real.
-                  </p>
-                  <p>
-                    Comencé mi formación en desarrollo web con HENRY, donde completé más de 
-                    800 horas de estudio intensivo en tecnologías modernas como React, Node.js 
-                    y PostgreSQL. Lo que más me motiva es la posibilidad de crear aplicaciones 
-                    que resuelvan problemas reales.
-                  </p>
-                  <p>
-                    He desarrollado proyectos reales para clientes locales como una mueblería en Tigre,
-                    y construí Studio Suite, un SaaS + CRM multi-tenant para centros de belleza
-                    con pagos integrados, arquitectura serverless y background jobs confiables.
-                    Esta experiencia me enseñó a entender las necesidades del negocio, trabajar
-                    con deadlines y crear soluciones escalables que generan valor real.
-                  </p>
-                  <p>
-                    Además, tengo experiencia realizando despliegues en Vercel, Netlify, DonWeb, Hostinger y Railway, 
-                    incluyendo configuración de dominios, certificados SSL y pipelines de CI/CD para automatizar
-                    builds y releases.
-                  </p>
-                  <p>
-                    Mi enfoque está en escribir código limpio, crear interfaces intuitivas 
-                    y optimizar para performance y SEO. Siempre estoy aprendiendo nuevas 
-                    tecnologías y mejorando mis habilidades.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8">
-                  <div className="bg-dark-800 rounded-xl p-6 space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    </div>
-                    <div className="space-y-2 font-mono text-sm">
-                      <div className="text-primary-400">const developer = {'{'} </div>
-                      <div className="ml-4 text-gray-300">name: <span className="text-green-400">"Edisson Toloza"</span>,</div>
-                      <div className="ml-4 text-gray-300">role: <span className="text-green-400">"Full-Stack Developer"</span>,</div>
-                      <div className="ml-4 text-gray-300">stack: <span className="text-yellow-400">["Next.js", "React", "PostgreSQL"]</span>,</div>
-                      <div className="ml-4 text-gray-300">shipped: <span className="text-green-400">"Studio Suite (SaaS)"</span>,</div>
-                      <div className="text-primary-400"> {'}'};</div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Skills */}
-        <section className="section-padding bg-dark-800">
+        {/* Qué podés esperar */}
+        <section className="section-padding border-t border-border">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="mb-8"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Mis Habilidades
+              <span className="eyebrow">Qué podés esperar</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight mt-3">
+                Trabajar conmigo, en concreto
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Tecnologías y herramientas que domino para crear soluciones web completas.
-              </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.category}
-                  initial={{ opacity: 0, y: 20 }}
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+              {expectations.map((item, index) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: index * 0.08 }}
                   viewport={{ once: true }}
-                  className="card group"
+                  className="flex items-center gap-3 text-foreground"
                 >
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-3 bg-primary-600/20 rounded-lg group-hover:bg-primary-600/30 transition-colors">
-                        <div className="text-primary-400 group-hover:text-primary-300 transition-colors">
-                          {skill.icon}
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors">
-                        {skill.category}
-                      </h3>
-                    </div>
-                    
-                    <p className="text-gray-400 text-sm">
-                      {skill.description}
-                    </p>
-                    
-                    <div className="space-y-2">
-                      {skill.technologies.map((tech, idx) => (
-                        <div key={idx} className="flex items-center space-x-2">
-                          <div className="w-1.5 h-1.5 bg-primary-400 rounded-full"></div>
-                          <span className="text-sm text-gray-300">{tech}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
+                  <span className="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
+                  {item}
+                </motion.li>
               ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Quién está detrás */}
+        <section className="section-padding border-t border-border">
+          <div className="container-max">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="order-2 lg:order-1 space-y-4"
+              >
+                <span className="eyebrow">Quién está detrás</span>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
+                  Edisson Toloza
+                </h2>
+                <div className="space-y-4 text-muted">
+                  <p>
+                    Desarrollo software para empresas y emprendedores que necesitan
+                    digitalizar procesos: desde reservas y pagos hasta catálogos y
+                    paneles de gestión.
+                  </p>
+                  <p>
+                    Construí Studio Suite, un SaaS multi-tenant para centros de belleza
+                    con pagos integrados y arquitectura serverless, y desarrollé
+                    StronMuebles.com para un cliente real en Tigre.
+                  </p>
+                  <p>
+                    Trabajo despliegues en Vercel, Railway y Hostinger, con dominios,
+                    SSL y pipelines de CI/CD para automatizar cada entrega.
+                  </p>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                viewport={{ once: true }}
+                className="order-1 lg:order-2"
+              >
+                <div className="rounded-xl border border-border bg-surface p-3">
+                  <div className="rounded-lg overflow-hidden">
+                    <img
+                      src="/retrato.jpg"
+                      alt="Edisson Toloza"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
         {/* Timeline */}
-        <section className="section-padding">
+        <section className="section-padding border-t border-border">
           <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Mi Trayectoria
+              <span className="eyebrow">Trayectoria</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight mt-3">
+                Un recorrido breve
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Un recorrido por mi formación y proyectos más importantes.
-              </p>
             </motion.div>
 
-            <div className="space-y-8">
-              {timeline.map((item, index) => (
+            <div className="relative max-w-xl">
+              <div className="absolute left-[3px] top-2 bottom-2 w-px bg-border" />
+              <div className="space-y-8">
+                {timeline.map((item, index) => (
+                  <motion.div
+                    key={item.year}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative pl-8"
+                  >
+                    <span
+                      className={`absolute left-0 top-1.5 w-[7px] h-[7px] rounded-full ${
+                        index === timeline.length - 1 ? 'bg-accent' : 'bg-border'
+                      }`}
+                    />
+                    <span className="eyebrow">{item.year}</span>
+                    <p className="text-foreground mt-1">{item.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tecnologías */}
+        <section className="section-padding border-t border-border">
+          <div className="container-max">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-8"
+            >
+              <span className="eyebrow">Tecnologías</span>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {technologies.map((group, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  key={group.category}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.08 }}
                   viewport={{ once: true }}
-                  className="flex items-start space-x-6"
                 >
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold">
-                      {item.year.split(' ')[0].slice(-2)}
-                    </div>
-                  </div>
-                  <div className="flex-1 space-y-2">
-                    <h3 className="text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-400">
-                      {item.description}
-                    </p>
+                  <span className="text-xs uppercase tracking-widest text-muted">{group.category}</span>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {group.items.map((tech) => (
+                      <span key={tech} className="tech-pill text-xs">{tech}</span>
+                    ))}
                   </div>
                 </motion.div>
               ))}
@@ -303,38 +255,28 @@ const About = () => {
         </section>
 
         {/* CTA */}
-        <section className="section-padding bg-gradient-to-r from-primary-600 to-primary-800">
-          <div className="container-max text-center">
+        <section className="section-padding border-t border-border">
+          <div className="container-max">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="rounded-xl border border-border bg-surface px-6 py-16 text-center space-y-6"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                ¿Buscas un desarrollador?
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+                ¿Tenés un proceso que podría funcionar mejor?
               </h2>
-              <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-                Estoy listo para unirme a un equipo, aportar valor desde el primer día y crecer profesionalmente.
+              <p className="text-lg text-muted max-w-xl mx-auto">
+                Hablemos sobre cómo convertirlo en software.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  to="/contacto" 
-                  className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center group"
-                >
-                  Contactar Ahora
-                  <ArrowLeft className="ml-2 w-4 h-4 group-hover:-translate-x-1 transition-transform rotate-180" />
-                </Link>
-                <a
-                  href="/CvEdissonToloza2025.pdf"
-                  download
-                  className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center group"
-                >
-                  <Download className="mr-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
-                  Descargar CV
-                </a>
-              </div>
+              <Link
+                to="/contacto"
+                className="btn-primary inline-flex items-center justify-center gap-2 group"
+              >
+                Agendar reunión
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </motion.div>
           </div>
         </section>

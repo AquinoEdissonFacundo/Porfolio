@@ -19,15 +19,15 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>Edisson Facundo Aquino Toloza - Desarrollador Full-Stack</title>
-        <meta name="description" content="Desarrollador Full Stack con experiencia en la creación de aplicaciones web eficientes y escalables. Me enfoco en resolver problemas reales mediante código limpio y experiencias de usuario optimizadas. He trabajado en proyectos para un centro terapéutico en Nordelta y una mueblería en Tigre, siempre adaptándome a los objetivos del negocio y mejorando continuamente mis habilidades." />
+        <title>Edisson Toloza — Software para hacer crecer tu negocio</title>
+        <meta name="description" content="Desarrollo software que automatiza operaciones, optimiza flujos de trabajo y ayuda a las empresas a escalar. Casos reales: SaaS multi-tenant con pagos integrados y e-commerce para clientes locales." />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Edisson Facundo Aquino Toloza",
-            "jobTitle": "Desarrollador Full-Stack",
-            "description": "Desarrollador Full-Stack especializado en React, Node.js y PostgreSQL",
+            "jobTitle": "Desarrollador de software",
+            "description": "Desarrollo aplicaciones web que automatizan procesos y ayudan a las empresas a escalar.",
             "url": "https://portfolio-one-delta-75.vercel.app/",
             "email": "aquinoedissonfacundo@gmail.com",
             "telephone": "+54911605658519",
@@ -46,13 +46,15 @@ function App() {
           })}
         </script>
       </Helmet>
-      
-      <div className="min-h-screen bg-dark-900">
+
+      <div className="min-h-screen bg-background">
         <Header />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/como-trabajo" element={<About />} />
             <Route path="/sobre-mi" element={<About />} />
+            <Route path="/casos-de-exito" element={<Projects />} />
             <Route path="/proyectos" element={<Projects />} />
             <Route path="/contacto" element={<Contact />} />
           </Routes>

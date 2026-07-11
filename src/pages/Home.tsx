@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Code2, Database, Globe, Zap } from 'lucide-react'
+import { ArrowRight, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
-import SkillCard from '../components/SkillCard'
 
 const Home = () => {
   const projects = [
@@ -30,138 +29,182 @@ const Home = () => {
     }
   ]
 
-  const skills = [
+  const stats = [
+    { value: '3', label: 'Productos en producción' },
+    { value: '100%', label: 'Proyectos entregados' },
+    { value: '24/7', label: 'Reservas y pagos operando' },
+  ]
+
+  const pillars = [
     {
-      category: 'Frontend',
-      icon: <Globe className="w-6 h-6" />,
-      technologies: ['React 19', 'Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'JavaScript (ES6+)']
+      title: 'Desarrollo orientado al negocio',
+      description: 'No escribo código por escribir. Cada decisión busca generar impacto.'
     },
     {
-      category: 'Backend',
-      icon: <Database className="w-6 h-6" />,
-      technologies: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'RESTful APIs', 'Better Auth', 'Mercado Pago']
+      title: 'Arquitectura preparada para crecer',
+      description: 'Diseñado para crecer junto con tu negocio.'
     },
     {
-      category: 'Infraestructura',
-      icon: <Zap className="w-6 h-6" />,
-      technologies: ['Inngest', 'Upstash Redis', 'Resend', 'Sentry', 'Neon (serverless)']
-    },
-    {
-      category: 'Herramientas',
-      icon: <Code2 className="w-6 h-6" />,
-      technologies: ['Git/GitHub', 'Vite', 'WordPress REST API', 'SEO', 'JSON-LD']
-    },
-    {
-      category: 'Deploy & Hosting',
-      icon: <Code2 className="w-6 h-6" />,
-      technologies: ['Vercel', 'Netlify', 'Railway', 'Supabase', 'DonWeb', 'Hostinger']
+      title: 'Comunicación clara',
+      description: 'Trabajo cerca del cliente durante todo el proceso.'
     }
+  ]
+
+  const solutions = [
+    'Reservas online',
+    'Plataformas internas',
+    'E-commerce',
+    'Dashboards',
+    'Automatización de procesos',
+    'Sistemas de gestión',
+    'Integraciones',
+    'Pasarelas de pago',
+  ]
+
+  const clientTypes = [
+    'Empresas en crecimiento',
+    'Negocios que necesitan digitalizar procesos',
+    'Emprendedores que validan productos',
+    'Equipos que necesitan escalar software',
+  ]
+
+  const process = [
+    { step: '01', title: 'Entender el problema', description: 'Analizo el proceso actual y dónde está la fricción.' },
+    { step: '02', title: 'Diseñar la solución', description: 'Defino arquitectura y alcance antes de escribir código.' },
+    { step: '03', title: 'Construir e iterar', description: 'Desarrollo en ciclos cortos con feedback constante.' },
+    { step: '04', title: 'Lanzar y mantener', description: 'Despliego a producción y acompaño el crecimiento.' },
   ]
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
+      {/* Hero */}
+      <section className="section-padding">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="space-y-6"
+              className="space-y-8"
             >
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-6xl font-bold text-white">
-                  Hola, soy{' '}
-                  <span className="gradient-text">Edisson Facundo</span>
+              <div className="space-y-5">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-foreground">
+                  Transformo procesos complejos en software simple.
                 </h1>
-                <h2 className="text-2xl md:text-3xl text-gray-300">
-                  Desarrollador Full-Stack
-                </h2>
-                <p className="text-lg text-gray-400 max-w-2xl">
-                  Me especializo en aplicaciones web eficientes y escalables, enfocado en resolver problemas reales con código limpio. Construí Studio Suite, un SaaS + CRM multi-tenant para centros de belleza con pagos integrados y arquitectura serverless, y desarrollé proyectos para clientes reales como una mueblería en Tigre. Siempre orientado a los objetivos del negocio.
+                <p className="text-lg text-muted max-w-xl">
+                  Desarrollo aplicaciones web que automatizan operaciones, optimizan flujos de trabajo y ayudan a las empresas a escalar.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/proyectos" className="btn-primary inline-flex items-center justify-center group">
-                  Ver Proyectos
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <Link to="/casos-de-exito" className="btn-primary inline-flex items-center justify-center gap-2 group">
+                  Ver proyectos
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link to="/contacto" className="btn-secondary inline-flex items-center justify-center">
-                  Agendar Reunión
+                <Link to="/contacto" className="btn-secondary inline-flex items-center justify-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  Hablemos
                 </Link>
               </div>
 
-              <div className="flex items-center space-x-6 pt-4">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-400">2+</div>
-                  <div className="text-sm text-gray-400">Proyectos Reales</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-400">800+</div>
-                  <div className="text-sm text-gray-400">Horas de Estudio</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary-400">100%</div>
-                  <div className="text-sm text-gray-400">Dedicación</div>
-                </div>
+              <div className="grid grid-cols-3 gap-4 pt-2">
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="rounded-xl border border-border bg-surface px-4 py-5 text-center"
+                  >
+                    <div className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</div>
+                    <div className="text-xs text-muted mt-1">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
             >
-              <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8 shadow-2xl">
-                <div className="bg-dark-800 rounded-xl p-6 space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-500 text-xs font-mono ml-2">studio-suite/booking.ts</span>
-                  </div>
-                  <div className="space-y-1 font-mono text-xs leading-relaxed">
-                    <div className="text-gray-500">{"// prevenir race conditions en reservas"}</div>
-                    <div><span className="text-primary-400">await</span> <span className="text-white">db.transaction</span><span className="text-gray-400">(async (tx) {"=> {"}</span></div>
-                    <div className="ml-4"><span className="text-primary-400">await</span> <span className="text-white">tx.execute</span><span className="text-gray-400">(</span><span className="text-green-400">sql`SELECT FOR UPDATE`</span><span className="text-gray-400">)</span></div>
-                    <div className="ml-4"><span className="text-primary-400">await</span> <span className="text-white">insertBooking</span><span className="text-gray-400">{"({ studioId, slot })"}</span></div>
-                    <div><span className="text-gray-400">{"});"}</span></div>
-                    <div className="mt-2"><span className="text-primary-400">await</span> <span className="text-white">inngest.send</span><span className="text-gray-400">{"({ name: "}</span><span className="text-green-400">"booking/confirmed"</span><span className="text-gray-400">{" })"}</span></div>
-                  </div>
+              <div className="rounded-xl border border-border bg-surface p-3">
+                <div className="rounded-lg overflow-hidden">
+                  <img
+                    src="/retrato.jpg"
+                    alt="Edisson Toloza"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </motion.div>
           </div>
+
+          {/* Trust line */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-sm text-muted mt-16 text-center"
+          >
+            Proyectos desarrollados para servicios, e-commerce y gestión interna.
+          </motion.p>
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section id="proyectos" className="section-padding bg-dark-800">
+      {/* Por qué trabajar conmigo */}
+      <section className="section-padding border-t border-border">
         <div className="container-max">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Proyectos Destacados
+            <span className="eyebrow">Por qué trabajar conmigo</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mt-3">
+              Confianza desde el primer día
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Trabajos reales para clientes locales, demostrando habilidades técnicas 
-              y capacidad de entrega.
-            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {pillars.map((pillar, index) => (
+              <motion.div
+                key={pillar.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="card"
+              >
+                <h3 className="text-lg font-semibold text-foreground mb-2">{pillar.title}</h3>
+                <p className="text-sm text-muted">{pillar.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Casos de éxito */}
+      <section className="section-padding border-t border-border">
+        <div className="container-max">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <span className="eyebrow">Casos de éxito</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mt-3">
+              Resultados, no solo código
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
@@ -172,83 +215,141 @@ const Home = () => {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="mt-12"
           >
-            <Link to="/proyectos" className="btn-secondary inline-flex items-center group">
-              Ver Todos los Proyectos
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Link to="/casos-de-exito" className="inline-flex items-center text-sm text-accent hover:text-accent-hover transition-colors group">
+              Ver todos los casos
+              <ArrowRight className="ml-1.5 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="habilidades" className="section-padding">
+      {/* Lo que puedo construir */}
+      <section className="section-padding border-t border-border">
         <div className="container-max">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="mb-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Habilidades Técnicas
+            <span className="eyebrow">Lo que puedo construir</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight mt-3">
+              Soluciones, no tecnologías
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Tecnologías y herramientas que domino para crear soluciones web completas.
-            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap gap-3"
+          >
+            {solutions.map((solution) => (
+              <span key={solution} className="tech-pill">
+                {solution}
+              </span>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Con quién trabajo */}
+      <section className="section-padding border-t border-border">
+        <div className="container-max">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <span className="eyebrow">Con quién trabajo</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight mt-3">
+              ¿Es esto para vos?
+            </h2>
+          </motion.div>
+
+          <ul className="space-y-3 max-w-xl">
+            {clientTypes.map((type, index) => (
+              <motion.li
+                key={type}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-3 text-foreground"
+              >
+                <span className="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
+                {type}
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Proceso */}
+      <section className="section-padding border-t border-border">
+        <div className="container-max">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <span className="eyebrow">Cómo trabajo</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mt-3">
+              Un proceso simple y predecible
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
+            {process.map((item, index) => (
               <motion.div
-                key={skill.category}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.step}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="card"
               >
-                <SkillCard skill={skill} />
+                <div className="text-sm font-semibold text-accent mb-3">{item.step}</div>
+                <h3 className="text-base font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm text-muted">{item.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-primary-600 to-primary-800">
-        <div className="container-max text-center">
+      {/* CTA final */}
+      <section className="section-padding border-t border-border">
+        <div className="container-max">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="rounded-xl border border-border bg-surface px-6 py-16 text-center space-y-6"
           >
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
-                ¿Buscas un desarrollador?
-              </h2>
-              <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-              Agendemos una reunión para discutir cómo puedo aportar valor a tu proyecto.
-              </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contacto" className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-medium transition-colors inline-flex items-center justify-center group">
-                Agendar Reunión
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href="/CvEdissonToloza2025.pdf"
-                download
-                className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-medium transition-all inline-flex items-center justify-center"
-              >
-                Descargar CV
-              </a>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
+              ¿Tenés un proceso que podría funcionar mejor?
+            </h2>
+            <p className="text-lg text-muted max-w-xl mx-auto">
+              Hablemos sobre cómo convertirlo en software.
+            </p>
+            <Link to="/contacto" className="btn-primary inline-flex items-center justify-center gap-2 group">
+              Agendar reunión
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </motion.div>
         </div>
       </section>
