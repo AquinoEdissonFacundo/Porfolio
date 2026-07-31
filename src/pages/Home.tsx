@@ -2,52 +2,22 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Calendar } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import ProjectCard from '../components/ProjectCard'
+import { projects } from '../data/projects'
 
 const Home = () => {
-  const projects = [
-    {
-      id: 3,
-      title: 'Studio Suite',
-      description: 'SaaS + CRM multi-tenant para centros de belleza: turnos, clientes, pagos y staff. Reservas online 24/7 con seña obligatoria vía Mercado Pago OAuth.',
-      image: './studioSuite.png',
-      technologies: ['Next.js 16', 'TypeScript', 'PostgreSQL', 'Mercado Pago', 'Inngest', 'Redis'],
-      liveUrl: 'https://studio-suite-lac.vercel.app/',
-      featured: true,
-      client: 'Producto propio (SaaS)',
-      date: 'Junio 2026'
-    },
-    {
-      id: 2,
-      title: 'StronMuebles.com',
-      description: 'Catálogo de mueblería con integración WordPress y sistema de rutas personalizado.',
-      image: './ProyectoMuebleria.png',
-      technologies: ['React 18', 'TypeScript', 'WordPress REST API', 'Sitemap'],
-      liveUrl: 'https://stronmuebles.com',
-      featured: true,
-      client: 'Cliente real - Tigre',
-      date: 'Septiembre 2025'
-    }
-  ]
-
   const stats = [
     { value: '3', label: 'Productos en producción' },
     { value: '100%', label: 'Proyectos entregados' },
     { value: '24/7', label: 'Reservas y pagos operando' },
   ]
 
-  const pillars = [
-    {
-      title: 'Desarrollo orientado al negocio',
-      description: 'No escribo código por escribir. Cada decisión busca generar impacto.'
-    },
-    {
-      title: 'Arquitectura preparada para crecer',
-      description: 'Diseñado para crecer junto con tu negocio.'
-    },
-    {
-      title: 'Comunicación clara',
-      description: 'Trabajo cerca del cliente durante todo el proceso.'
-    }
+  const principles = [
+    'Construir para producción, no para la demo.',
+    'Lo simple gana sobre lo ingenioso.',
+    'Medir antes de opinar.',
+    'El usuario primero, la tecnología después.',
+    'Automatizar lo repetible.',
+    'Comunicación clara durante todo el proceso.',
   ]
 
   const solutions = [
@@ -150,7 +120,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Por qué trabajar conmigo */}
+      {/* Principios */}
       <section className="section-padding border-t border-border">
         <div className="container-max">
           <motion.div
@@ -160,31 +130,30 @@ const Home = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <span className="eyebrow">Por qué trabajar conmigo</span>
+            <span className="eyebrow">Principios</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mt-3">
-              Confianza desde el primer día
+              Cómo pienso el software
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {pillars.map((pillar, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {principles.map((principle, index) => (
               <motion.div
-                key={pillar.title}
+                key={principle}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.06 }}
                 viewport={{ once: true }}
                 className="card"
               >
-                <h3 className="text-lg font-semibold text-foreground mb-2">{pillar.title}</h3>
-                <p className="text-sm text-muted">{pillar.description}</p>
+                <p className="text-foreground font-medium">{principle}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Casos de éxito */}
+      {/* Proyectos seleccionados */}
       <section className="section-padding border-t border-border">
         <div className="container-max">
           <motion.div
@@ -194,7 +163,7 @@ const Home = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <span className="eyebrow">Casos de éxito</span>
+            <span className="eyebrow">Proyectos seleccionados</span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight mt-3">
               Resultados, no solo código
             </h2>

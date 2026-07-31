@@ -29,8 +29,8 @@ const About = () => {
 
   const timeline = [
     { year: '2024', description: 'Comienzo como desarrollador.' },
-    { year: '2025', description: 'Primeros productos en producción.' },
-    { year: '2026', description: 'Especialización en software para negocios.' },
+    { year: '2025', description: 'StronMuebles.com, mi primer proyecto en producción para un cliente real.' },
+    { year: '2026', description: 'Studio Suite, mi primer SaaS: un producto propio de principio a fin.' },
     { year: 'Hoy', description: 'Construyendo soluciones para empresas.' },
   ]
 

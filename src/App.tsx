@@ -6,6 +6,9 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import CaseStudy from './pages/CaseStudy'
+import Writing from './pages/Writing'
+import Article from './pages/Article'
 import Contact from './pages/Contact'
 
 function App() {
@@ -55,7 +58,10 @@ function App() {
             <Route path="/como-trabajo" element={<About />} />
             <Route path="/sobre-mi" element={<About />} />
             <Route path="/casos-de-exito" element={<Projects />} />
+            <Route path="/casos-de-exito/:slug" element={<CaseStudy />} />
             <Route path="/proyectos" element={<Projects />} />
+            <Route path="/escritos" element={<Writing />} />
+            <Route path="/escritos/:slug" element={<Article />} />
             <Route path="/contacto" element={<Contact />} />
           </Routes>
         </main>

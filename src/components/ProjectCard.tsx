@@ -1,18 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-
-interface Project {
-  id: number
-  title: string
-  description: string
-  image: string
-  technologies: string[]
-  liveUrl: string
-  featured: boolean
-  client: string
-  date: string
-}
+import type { Project } from '../data/projects'
 
 interface ProjectCardProps {
   project: Project
@@ -20,9 +9,6 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, isClickable = false }: ProjectCardProps) => {
-  const visibleTech = project.technologies.slice(0, 4)
-  const extraTech = project.technologies.length - visibleTech.length
-
   const CardContent = () => (
     <motion.div className="bg-surface border border-border rounded-xl overflow-hidden shadow-card hover:border-muted transition-colors duration-300 group">
       {/* Project Image */}
@@ -49,23 +35,20 @@ const ProjectCard = ({ project, isClickable = false }: ProjectCardProps) => {
           {project.client} · {project.date}
         </div>
 
-        {/* Technologies */}
+        {/* Highlights */}
         <div className="flex flex-wrap gap-2">
-          {visibleTech.map((tech) => (
-            <span key={tech} className="tech-pill text-xs">
-              {tech}
+          {project.highlights.map((highlight) => (
+            <span key={highlight} className="tech-pill text-xs">
+              {highlight}
             </span>
           ))}
-          {extraTech > 0 && (
-            <span className="tech-pill text-xs">+{extraTech}</span>
-          )}
         </div>
 
         {/* Action */}
         <div className="pt-2">
           {isClickable ? (
             <span className="inline-flex items-center text-sm text-accent group-hover:text-accent-hover transition-colors">
-              Ver caso
+              Ver case study
               <ArrowRight className="ml-1.5 w-4 h-4" />
             </span>
           ) : (
@@ -86,7 +69,7 @@ const ProjectCard = ({ project, isClickable = false }: ProjectCardProps) => {
 
   if (isClickable) {
     return (
-      <Link to={`/casos-de-exito#project-${project.id}`} className="block">
+      <Link to={`/casos-de-exito/${project.slug}`} className="block">
         <CardContent />
       </Link>
     )

@@ -10,10 +10,12 @@ const Header = () => {
     { name: 'Inicio', path: '/' },
     { name: 'Casos de éxito', path: '/casos-de-exito' },
     { name: 'Cómo trabajo', path: '/como-trabajo' },
+    { name: 'Escritos', path: '/escritos' },
     { name: 'Contacto', path: '/contacto' },
   ]
 
-  const isActive = (path: string) => location.pathname === path
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path)
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
